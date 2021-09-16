@@ -33,7 +33,7 @@ create table CONSULTAS(
 	constraint PROFISSIONAIS_fk foreign  key (cpf_P) references PROFISSIONAIS(cpf),
 
 	agendamento datetime, 
-    primary key (cpf)
+    primary key (id)
 	);
 
 insert into CLIENTES(cpf, email, senha, nome) 
