@@ -8,7 +8,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-//import java.util.Date;
 
 import br.ufscar.dc.dsw.domain.Clientes;
 import br.ufscar.dc.dsw.domain.Profissionais;
