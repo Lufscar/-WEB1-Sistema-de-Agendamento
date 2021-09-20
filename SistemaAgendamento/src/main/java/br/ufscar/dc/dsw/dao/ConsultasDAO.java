@@ -27,7 +27,7 @@ public class ConsultasDAO extends GenericDAO {
             statement.setLong(1, consulta.getId());
             statement.setString(2, consulta.getCliente().getCpf());
             statement.setString(3, consulta.getProfissional().getCpf());
-            statement.setDate(4, java.util.Date(consulta.getData()));
+            statement.setDate(4, (Date) consulta.getData());
             statement.setInt(5, consulta.getHora());
             statement.executeUpdate();
 

@@ -31,7 +31,7 @@ public class ClientesDAO extends GenericDAO {
             statement.setString(4, cliente.getNome());
             statement.setString(5, cliente.getTelefone());
             statement.setString(6, cliente.getSexo());
-            statement.setDate(7, cliente.getNascimento());
+            statement.setDate(7, (Date) cliente.getNascimento());
             statement.executeUpdate();
 
             statement.close();
@@ -106,7 +106,7 @@ public class ClientesDAO extends GenericDAO {
             statement.setString(4, cliente.getNome());
             statement.setString(5, cliente.getTelefone());
             statement.setString(6, cliente.getSexo());
-            statement.setDate(7, cliente.getNascimento());
+            statement.setDate(7, (Date) cliente.getNascimento());
             statement.executeUpdate();
 
             statement.close();
