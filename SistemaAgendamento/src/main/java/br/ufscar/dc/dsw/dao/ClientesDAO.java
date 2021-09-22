@@ -119,16 +119,16 @@ public class ClientesDAO extends GenericDAO {
         }
     }
 
-    public Clientes get(String cpf) {
+    public Clientes get(Long idx) {
         Clientes cliente = null;
 
-        String sql = "SELECT * from CLIENTES where cpf = ?";
+        String sql = "SELECT * from CLIENTES where id = ?";
 
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
 
-            statement.setString(1, cpf);
+            statement.setLong(1, idx);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
                 Long id = resultSet.getLong("id");

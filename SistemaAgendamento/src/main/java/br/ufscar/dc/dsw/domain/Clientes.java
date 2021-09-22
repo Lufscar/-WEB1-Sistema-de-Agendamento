@@ -25,6 +25,10 @@ public class Clientes{
 		this.nascimento = nascimento;
     }
 	
+    public Clientes(Long id) {
+    	this.id = id;
+    }
+    
 	public Long getId() {
         return id;
     }
