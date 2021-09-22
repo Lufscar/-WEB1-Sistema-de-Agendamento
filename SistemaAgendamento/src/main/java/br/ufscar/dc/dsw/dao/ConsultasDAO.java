@@ -62,7 +62,7 @@ public class ConsultasDAO extends GenericDAO {
                 String telefone = resultSet.getString("telefone");
                 String sexo = resultSet.getString("sexo");
                 Date nascimento = resultSet.getDate("nascimento");
-                Clientes cliente = new Clientes(cpf_C, email_C, senha_C, nome_C, telefone, sexo, nascimento);
+                Clientes cliente = new Clientes(id, cpf_C, email_C, senha_C, nome_C, telefone, sexo, nascimento);
                 
                 String email_P = resultSet.getString("email");
                 String senha_P = resultSet.getString("senha");
@@ -70,8 +70,7 @@ public class ConsultasDAO extends GenericDAO {
                 String nome_P = resultSet.getString("nome");
                 String area = resultSet.getString("area");
                 String especialidade = resultSet.getString("especialidade");
-                String qualificacoes = resultSet.getString("qualificacoes");
-                Profissionais profissional = new Profissionais(email_P, senha_P, cpf_P, nome_P, area, especialidade, qualificacoes);
+                Profissionais profissional = new Profissionais(id, email_P, senha_P, cpf_P, nome_P, area, especialidade);
      
                 Consultas consulta = new Consultas(id, cliente, profissional, data, hora);
                 listaConsultas.add(consulta);
@@ -110,7 +109,7 @@ public class ConsultasDAO extends GenericDAO {
                 String telefone = resultSet.getString("telefone");
                 String sexo = resultSet.getString("sexo");
                 Date nascimento = resultSet.getDate("nascimento");
-                Clientes cliente = new Clientes(cpf_C, email_C, senha_C, nome_C, telefone, sexo, nascimento);
+                Clientes cliente = new Clientes(id, cpf_C, email_C, senha_C, nome_C, telefone, sexo, nascimento);
                 
                 String email_P = resultSet.getString("email");
                 String senha_P = resultSet.getString("senha");
@@ -119,7 +118,7 @@ public class ConsultasDAO extends GenericDAO {
                 String area = resultSet.getString("area");
                 String especialidade = resultSet.getString("especialidade");
                 String qualificacoes = resultSet.getString("qualificacoes");
-                Profissionais profissional = new Profissionais(email_P, senha_P, cpf_P, nome_P, area, especialidade, qualificacoes);
+                Profissionais profissional = new Profissionais(id, email_P, senha_P, cpf_P, nome_P, area, especialidade);
      
                 Consultas consulta = new Consultas(id, cliente, profissional, data, hora);
                 listaConsultas.add(consulta);

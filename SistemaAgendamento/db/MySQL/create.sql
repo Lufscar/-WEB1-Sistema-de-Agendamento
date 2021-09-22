@@ -3,6 +3,7 @@ create database AgendamentoConsultas;
 use AgendamentoConsultas;
 
 create table CLIENTES(
+	id bigint not null auto_increment,
 	cpf decimal(11) not null,
 	email varchar(128) not null,
 	senha varchar(128) not null, 
@@ -14,6 +15,7 @@ create table CLIENTES(
 	);
 
 create table PROFISSIONAIS(
+	id bigint not null auto_increment,
 	cpf decimal(11) not null,
 	email varchar(128) not null,
 	senha varchar(64) not null, 

@@ -18,20 +18,21 @@ public class ClientesDAO extends GenericDAO {
 
     public void insert(Clientes cliente) {
 
-        String sql = "INSERT INTO CLIENTES (cpf, email, senha, nome, telefone, sexo, nascimento) VALUES (?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO CLIENTES (id, cpf, email, senha, nome, telefone, sexo, nascimento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
 
             statement = conn.prepareStatement(sql);
-            statement.setString(1, cliente.getCpf());
-            statement.setString(2, cliente.getEmail());
-            statement.setString(3, cliente.getSenha());
-            statement.setString(4, cliente.getNome());
-            statement.setString(5, cliente.getTelefone());
-            statement.setString(6, cliente.getSexo());
-            statement.setDate(7, (Date) cliente.getNascimento());
+            statement.setLong(1, cliente.getId());
+            statement.setString(2, cliente.getCpf());
+            statement.setString(3, cliente.getEmail());
+            statement.setString(4, cliente.getSenha());
+            statement.setString(5, cliente.getNome());
+            statement.setString(6, cliente.getTelefone());
+            statement.setString(7, cliente.getSexo());
+            statement.setDate(8, (Date) cliente.getNascimento());
             statement.executeUpdate();
 
             statement.close();
@@ -53,6 +54,7 @@ public class ClientesDAO extends GenericDAO {
 
             ResultSet resultSet = statement.executeQuery(sql);
             while (resultSet.next()) {
+                Long id = resultSet.getLong("id");
                 String cpf = resultSet.getString("cpf");
                 String email = resultSet.getString("email");
                 String senha = resultSet.getString("senha");
@@ -60,7 +62,7 @@ public class ClientesDAO extends GenericDAO {
                 String telefone = resultSet.getString("telefone");
                 String sexo = resultSet.getString("sexo");
                 Date nascimento = resultSet.getDate("nascimento");
-                Clientes cliente = new Clientes(cpf, email, senha, nome, telefone, sexo, nascimento);
+                Clientes cliente = new Clientes(id, cpf, email, senha, nome, telefone, sexo, nascimento);
 
                 listaClientes.add(cliente);
             }
@@ -100,13 +102,14 @@ public class ClientesDAO extends GenericDAO {
             PreparedStatement statement = conn.prepareStatement(sql);
 
             statement = conn.prepareStatement(sql);
-            statement.setString(1, cliente.getCpf());
-            statement.setString(2, cliente.getEmail());
-            statement.setString(3, cliente.getSenha());
-            statement.setString(4, cliente.getNome());
-            statement.setString(5, cliente.getTelefone());
-            statement.setString(6, cliente.getSexo());
-            statement.setDate(7, (Date) cliente.getNascimento());
+            statement.setLong(1, cliente.getId());
+            statement.setString(2, cliente.getCpf());
+            statement.setString(3, cliente.getEmail());
+            statement.setString(4, cliente.getSenha());
+            statement.setString(5, cliente.getNome());
+            statement.setString(6, cliente.getTelefone());
+            statement.setString(7, cliente.getSexo());
+            statement.setDate(8, (Date) cliente.getNascimento());
             statement.executeUpdate();
 
             statement.close();
@@ -128,6 +131,7 @@ public class ClientesDAO extends GenericDAO {
             statement.setString(1, cpf);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {
+                Long id = resultSet.getLong("id");
             	String cpf_c = resultSet.getString("cpf");
                 String email = resultSet.getString("email");
                 String senha = resultSet.getString("senha");
@@ -136,7 +140,7 @@ public class ClientesDAO extends GenericDAO {
                 String sexo = resultSet.getString("sexo");
                 Date nascimento = resultSet.getDate("nascimento");
                 		
-                cliente = new Clientes(cpf_c, email, senha, nome, telefone, sexo, nascimento);
+                cliente = new Clientes(id, cpf_c, email, senha, nome, telefone, sexo, nascimento);
             }
 
             resultSet.close();

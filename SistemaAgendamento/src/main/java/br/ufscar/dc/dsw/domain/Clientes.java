@@ -5,6 +5,7 @@ import java.util.Date;
 
 public class Clientes{
 
+	private Long id;
     private static String cpf;
     private String email;
     private String senha;
@@ -13,14 +14,23 @@ public class Clientes{
 	private String sexo;
 	private Date nascimento;
 
-    public Clientes(String cpf, String email, String senha, String nome, String telefone, String sexo, Date nascimento) {
-        this.cpf = cpf;
+    public Clientes(Long id, String cpf, String email, String senha, String nome, String telefone, String sexo, Date nascimento) {
+    	this.id = id;
+		this.cpf = cpf;
         this.email = email;
 		this.senha = senha;
 		this.nome = nome;
 		this.telefone = telefone;
 		this.sexo = sexo;
 		this.nascimento = nascimento;
+    }
+	
+	public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
 	public static String getCpf() {
