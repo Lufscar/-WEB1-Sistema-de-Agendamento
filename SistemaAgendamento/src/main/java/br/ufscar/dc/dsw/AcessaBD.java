@@ -15,13 +15,13 @@ public class AcessaBD {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		    String url = "jdbc:mysql://localhost:3306/AgendamentoConsultas";
-			Connection con = (Connection) DriverManager.getConnection(url, "root", "root"); //mudar a senha caso necessario
+			Connection con = (Connection) DriverManager.getConnection(url, "root", "asdf"); //mudar a senha caso necessario
 		
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from CLIENTES");
 			while (rs.next()) {
-				//System.out.print(rs.getLong("id"));
-				System.out.print(rs.getString("CPF"));
+				System.out.print(rs.getLong("id"));
+				System.out.print(", " + rs.getString("CPF"));
 				System.out.print(", " + rs.getString("Email"));
 				System.out.print(", " + rs.getString("Senha"));
 				System.out.print(", " + rs.getString("Nome"));
@@ -33,8 +33,8 @@ public class AcessaBD {
 			
 			rs = stmt.executeQuery("select * from PROFISSIONAIS");
 			while (rs.next()) {
-				//System.out.print(rs.getLong("id"));
-				System.out.print(rs.getString("CPF"));
+				System.out.print(rs.getLong("id"));
+				System.out.print(", " + rs.getString("CPF"));
 				System.out.print(", " + rs.getString("Email"));
 				System.out.print(", " + rs.getString("Senha"));
 				System.out.print(", " + rs.getString("Nome"));
@@ -45,8 +45,10 @@ public class AcessaBD {
 			
 			rs = stmt.executeQuery("select * from CONSULTAS");
 			while (rs.next()) {
-				//System.out.print(rs.getLong("id"));
-				System.out.print(rs.getString("CPF_C"));
+				System.out.print(rs.getLong("id"));
+				System.out.print(", " + rs.getLong("id_C"));
+				System.out.print(", " + rs.getString("CPF_C"));
+				System.out.print(", " + rs.getLong("id_P"));
 				System.out.print(", " + rs.getString("CPF_P"));
 				System.out.print(", " + rs.getString("Agendamento"));
 				System.out.print("\n\n");

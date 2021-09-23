@@ -117,7 +117,6 @@ public class ConsultasDAO extends GenericDAO {
                 String nome_P = resultSet.getString("nome");
                 String area = resultSet.getString("area");
                 String especialidade = resultSet.getString("especialidade");
-                String qualificacoes = resultSet.getString("qualificacoes");
                 Profissionais profissional = new Profissionais(id, email_P, senha_P, cpf_P, nome_P, area, especialidade);
      
                 Consultas consulta = new Consultas(id, cliente, profissional, data, hora);
