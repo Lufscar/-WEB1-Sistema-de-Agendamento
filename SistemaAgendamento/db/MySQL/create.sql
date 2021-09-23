@@ -4,7 +4,7 @@ use AgendamentoConsultas;
 
 create table CLIENTES(
 	id bigint not null auto_increment,
-	cpf decimal(11) not null,
+	cpf varchar(11) not null,
 	email varchar(128) not null,
 	senha varchar(128) not null, 
 	nome varchar(256) not null,
@@ -16,7 +16,7 @@ create table CLIENTES(
 
 create table PROFISSIONAIS(
 	id bigint not null auto_increment,
-	cpf decimal(11) not null,
+	cpf varchar(11) not null,
 	email varchar(128) not null,
 	senha varchar(64) not null, 
 	nome varchar(128) not null,
@@ -28,10 +28,10 @@ create table PROFISSIONAIS(
 create table CONSULTAS(
 	id bigint not null auto_increment,
 
-	cpf_C decimal(11) not null,  
+	cpf_C varchar(11) not null,  
 	constraint CLIENTES_fk foreign  key (cpf_C) references CLIENTES(cpf),
 
-	cpf_P decimal(11) not null,  
+	cpf_P varchar(11) not null,  
 	constraint PROFISSIONAIS_fk foreign  key (cpf_P) references PROFISSIONAIS(cpf),
 
 	agendamento datetime, 

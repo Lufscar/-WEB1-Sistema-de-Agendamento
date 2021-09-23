@@ -14,44 +14,50 @@ public class AcessaBD {
 			/* Setup para uso do banco de dados MySQL */
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-		    String url = "jdbc:mysql://localhost:3306/Agendamento";
-			Connection con = (Connection) DriverManager.getConnection(url, "root", "root");
+		    String url = "jdbc:mysql://localhost:3306/AgendamentoConsultas";
+			Connection con = (Connection) DriverManager.getConnection(url, "root", "root"); //mudar a senha caso necessario
 		
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from CLIENTES");
 			while (rs.next()) {
-				System.out.print(rs.getInt("CPF"));
+				//System.out.print(rs.getLong("id"));
+				System.out.print(rs.getString("CPF"));
 				System.out.print(", " + rs.getString("Email"));
 				System.out.print(", " + rs.getString("Senha"));
 				System.out.print(", " + rs.getString("Nome"));
 				System.out.print(", " + rs.getString("Telefone"));
 				System.out.print(", " + rs.getString("Sexo"));
-				System.out.print(", " + rs.getString("Data de Nascimento"));
+				System.out.print(", " + rs.getString("Nascimento"));
+				System.out.print("\n\n");
 			}
-			/*
+			
 			rs = stmt.executeQuery("select * from PROFISSIONAIS");
 			while (rs.next()) {
-				System.out.print(rs.getInt("CPF"));
+				//System.out.print(rs.getLong("id"));
+				System.out.print(rs.getString("CPF"));
 				System.out.print(", " + rs.getString("Email"));
 				System.out.print(", " + rs.getString("Senha"));
 				System.out.print(", " + rs.getString("Nome"));
 				System.out.print(", " + rs.getString("Area"));
 				System.out.print(", " + rs.getString("Especialidade"));
+				System.out.print("\n\n");
 			}
 			
-			ResultSet rs = stmt.executeQuery("select * from CONSULTAS");
+			rs = stmt.executeQuery("select * from CONSULTAS");
 			while (rs.next()) {
-				System.out.print(rs.getInt("CPF Cliente"));
-				System.out.print(", " + rs.getInt("CPF Profissional"));
-				System.out.print(", " + rs.getString("Data/Hora da Consulta"));
+				//System.out.print(rs.getLong("id"));
+				System.out.print(rs.getString("CPF_C"));
+				System.out.print(", " + rs.getString("CPF_P"));
+				System.out.print(", " + rs.getString("Agendamento"));
+				System.out.print("\n\n");
 			}
-			*/
+			
 			stmt.close();
 			con.close();
 		} catch (ClassNotFoundException e) {
 			System.out.println("A classe do driver de conexão não foi encontrada!");
 		} catch (SQLException e) {
-			System.out.println("O comando SQL não pode ser executado!");
+			System.out.println("O comando SQL não pode ser executado!\n ----->\n" + e + "\n <-----");
 		}
 	}
 }
