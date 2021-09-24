@@ -40,7 +40,7 @@ public class IndexController extends HttpServlet {
 			System.out.println("TA AQUI"+ tipo);
 			if (!erros.isExisteErros()) {
 				System.out.println("TA AQUI22222"+ tipo);
-				if (tipo == "cliente") {
+				if (tipo.equals("cliente")) {
 					ClientesDAO dao = new ClientesDAO();
 					Clientes usuario = dao.getbyLogin(login);
 					if (usuario != null) {
@@ -55,7 +55,7 @@ public class IndexController extends HttpServlet {
 						erros.add("Usuário não encontrado!");
 					}
 				}
-				if (tipo == "profissional") {
+				if (tipo.equals("profissional")) {
 					ProfissionaisDAO dao = new ProfissionaisDAO();
 					Profissionais usuario = dao.getbyLogin(login);
 					if (usuario != null) {
