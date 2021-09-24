@@ -15,7 +15,7 @@ public class AcessaBD {
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
 		    String url = "jdbc:mysql://localhost:3306/AgendamentoConsultas";
-			Connection con = (Connection) DriverManager.getConnection(url, "root", "asdf"); //mudar a senha caso necessario
+			Connection con = (Connection) DriverManager.getConnection(url, "root", "root"); //mudar a senha caso necessario
 		
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery("select * from CLIENTES");
