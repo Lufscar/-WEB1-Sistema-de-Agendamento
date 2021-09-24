@@ -1,9 +1,9 @@
 package br.ufscar.dc.dsw.controller;
 
-import br.ufscar.dc.dsw.dao.ClientesDAO;
+import br.ufscar.dc.dsw.dao.ProfissionaisDAO;
 import br.ufscar.dc.dsw.dao.ConsultasDAO;
 import br.ufscar.dc.dsw.dao.ProfissionaisDAO;
-import br.ufscar.dc.dsw.domain.Clientes;
+import br.ufscar.dc.dsw.domain.Profissionais;
 import br.ufscar.dc.dsw.domain.Consultas;
 import br.ufscar.dc.dsw.domain.Profissionais;
 import java.io.IOException;
@@ -21,15 +21,15 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Date;
 
-@WebServlet(urlPatterns = "/clientes/*")
-public class ClientesController extends HttpServlet {
+@WebServlet(urlPatterns = "/profissionais/*")
+public class ProfissionaisController extends HttpServlet {
 
     private static final long serialVersionUID = 1L; 
-    private ClientesDAO dao;
+    private ProfissionaisDAO dao;
 
     @Override
     public void init() {
-        dao = new ClientesDAO();
+        dao = new ProfissionaisDAO();
     }
 
     @Override
@@ -71,22 +71,22 @@ public class ClientesController extends HttpServlet {
     }
 
     private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Clientes> listaClientes = dao.getAll();
-        request.setAttribute("listaClientes", listaClientes);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/clientes/lista.jsp");
+        List<Profissionais> listaProfissionais = dao.getAll();
+        request.setAttribute("listaProfissionais", listaProfissionais);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/profissionais/lista.jsp");
         dispatcher.forward(request, response);
     }
     
     private void apresentaFormCadastro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/clientes/formulario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/profissionais/formulario.jsp");
         dispatcher.forward(request, response);
     }
 
     private void apresentaFormEdicao(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         Long id = Long.parseLong(request.getParameter("id"));
-        Clientes cliente = dao.get(id);
-        request.setAttribute("cliente", cliente);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/cliente/formulario.jsp");
+        Profissionais profissional = dao.get(id);
+        request.setAttribute("profissional", profissional);
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/profissional/formulario.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -99,21 +99,12 @@ public class ClientesController extends HttpServlet {
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
         String nome = request.getParameter("nome");
-        String telefone = request.getParameter("telefone");
-        String sexo = request.getParameter("sexo");
-        /*
-         String startDateStr = request.getParameter("startDate");
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-	//surround below line with try catch block as below code throws checked exception
-	Date startDate = sdf.parse(startDateStr);
-         * */
+        String area = request.getParameter("area");
+        String especialidade = request.getParameter("especialidade");
+
         
-        String nascimentoStr = request.getParameter("nascimento");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date nascimento = (Date) sdf.parse(nascimentoStr);
-        
-        Clientes cliente = new Clientes(id, cpf, email, senha, nome, telefone, sexo, nascimento);
-        dao.insert(cliente);
+        Profissionais profissional = new Profissionais(id, cpf, email, senha, nome, area, especialidade);
+        dao.insert(profissional);
         response.sendRedirect("lista");
     }
 
@@ -125,23 +116,19 @@ public class ClientesController extends HttpServlet {
         String email = request.getParameter("email");
         String senha = request.getParameter("senha");
         String nome = request.getParameter("nome");
-        String telefone = request.getParameter("telefone");
-        String sexo = request.getParameter("sexo");
+        String area = request.getParameter("area");
+        String especialidade = request.getParameter("especialidade");
         
-        String nascimentoStr = request.getParameter("nascimento");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date nascimento = (Date) sdf.parse(nascimentoStr);
-
-        Clientes cliente = new Clientes(id, cpf, email, senha, nome, telefone, sexo, nascimento);
-        dao.update(cliente);
-        response.sendRedirect("cliente");
+        Profissionais profissional = new Profissionais(id, cpf, email, senha, nome, area, especialidade);
+        dao.update(profissional);
+        response.sendRedirect("profissional");
     }
 
     private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {
         Long id = Long.parseLong(request.getParameter("id"));
 
-        Clientes cliente = new Clientes(id);
-        dao.delete(cliente);
-        response.sendRedirect("cliente");
+        Profissionais profissional = new Profissionais(id);
+        dao.delete(profissional);
+        response.sendRedirect("profissional");
     }
 }

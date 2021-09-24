@@ -112,7 +112,7 @@ public class ProfissionaisDAO extends GenericDAO {
         }
     }
 
-    public Profissionais get(String cpf) {
+    public Profissionais get(Long id) {
     	Profissionais profissional = null;
 
     	String sql = "SELECT * from Profissionais order by area ASC, order by especialidade DESC";
@@ -121,10 +121,10 @@ public class ProfissionaisDAO extends GenericDAO {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
 
-            statement.setNString(1, cpf);
+            statement.setLong(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {              
-            	Long id = resultSet.getLong("id");
+            	String cpf = resultSet.getString("cpf");
             	String email = resultSet.getString("email");
                 String senha = resultSet.getString("senha");
                 String nome = resultSet.getString("nome");
