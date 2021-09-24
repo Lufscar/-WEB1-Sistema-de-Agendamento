@@ -8,6 +8,8 @@ import br.ufscar.dc.dsw.domain.Consultas;
 import br.ufscar.dc.dsw.domain.Profissionais;
 import java.io.IOException;
 import java.sql.Date;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -63,7 +65,7 @@ public class ClientesController extends HttpServlet {
                     lista(request, response);
                     break;
             }
-        } catch (RuntimeException | IOException | ServletException e) {
+        } catch (RuntimeException | IOException | ServletException | ParseException e) {
             throw new ServletException(e);
         }
     }
@@ -88,7 +90,7 @@ public class ClientesController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void insere(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void insere(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
         request.setCharacterEncoding("UTF-8");
         
         String titulo = request.getParameter("titulo");
@@ -103,15 +105,23 @@ public class ClientesController extends HttpServlet {
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");
         String sexo = request.getParameter("sexo");
-        Date nascimento = (Date) request.getParameter("nascimento");
-
+        /*
+         String startDateStr = request.getParameter("startDate");
+	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+	//surround below line with try catch block as below code throws checked exception
+	Date startDate = sdf.parse(startDateStr);
+         * */
+        
+        String nascimentoStr = request.getParameter("nascimento");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date nascimento = (Date) sdf.parse(nascimentoStr);
         
         Clientes cliente = new Clientes(id, cpf, email, senha, nome, telefone, sexo, nascimento);
         dao.insert(cliente);
         response.sendRedirect("lista");
     }
 
-    private void atualize(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    private void atualize(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
 
         request.setCharacterEncoding("UTF-8");
         Long id = Long.parseLong(request.getParameter("id"));
@@ -121,7 +131,10 @@ public class ClientesController extends HttpServlet {
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");
         String sexo = request.getParameter("sexo");
-        Date nascimento = request.getParameter("nascimento");
+        
+        String nascimentoStr = request.getParameter("nascimento");
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
+        Date nascimento = (Date) sdf.parse(nascimentoStr);
 
         Clientes cliente = new Clientes(id, cpf, email, senha, nome, telefone, sexo, nascimento);
         dao.update(cliente);
