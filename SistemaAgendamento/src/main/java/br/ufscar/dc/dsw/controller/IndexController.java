@@ -37,8 +37,9 @@ public class IndexController extends HttpServlet {
 				erros.add("Senha não informada!");
 			}
 			
-			
+			System.out.println("TA AQUI"+ tipo);
 			if (!erros.isExisteErros()) {
+				System.out.println("TA AQUI22222"+ tipo);
 				if (tipo == "cliente") {
 					ClientesDAO dao = new ClientesDAO();
 					Clientes usuario = dao.getbyLogin(login);
@@ -69,16 +70,17 @@ public class IndexController extends HttpServlet {
 						erros.add("Usuário não encontrado!");
 					}
 				}
-					
-				if (tipo == "admin") {
-					if (senha == "admin") {
-						if (login == "admin") {
+				System.out.println("TA AQUI33333");
+				if (tipo.equals("admin")) {
+					System.out.println("TA AQUI4444");
+					if (senha.equals("admin")) {
+						if (login.equals("admin")) {
 							request.getSession().setAttribute("tipo", tipo);
-							response.sendRedirect("admin/");
+							response.sendRedirect("admin");
 						} 
 						else erros.add("Login inválido!");
 					} else erros.add("Senha inválida!");
-				
+				return;
 				}
 				
 			}
