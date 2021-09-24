@@ -150,4 +150,59 @@ public class ClientesDAO extends GenericDAO {
         }
         return cliente;
     }
+    
+    public Clientes getbyID(Long id) {
+        Clientes usuario = null;
+        String sql = "SELECT * from Usuario WHERE id = ?";
+        try {
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setLong(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+            	String cpf_c = resultSet.getString("cpf");
+                String email = resultSet.getString("email");
+                String senha = resultSet.getString("senha");
+                String nome = resultSet.getString("nome");
+                String telefone = resultSet.getString("telefone");
+                String sexo = resultSet.getString("sexo");
+                Date nascimento = resultSet.getDate("nascimento");
+                usuario = new Clientes(id, cpf_c, email, senha, nome, telefone, sexo, nascimento);
+            }
+            resultSet.close();
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return usuario;
+    }
+    
+    public Clientes getbyLogin(String login) {
+        Clientes usuario = null;
+        String sql = "SELECT * from CLIENTES WHERE email = ?";
+        try {
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, login);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+            	Long id = resultSet.getLong("id");
+            	String cpf_c = resultSet.getString("cpf");
+                String email = resultSet.getString("email");
+                String senha = resultSet.getString("senha");
+                String nome = resultSet.getString("nome");
+                String telefone = resultSet.getString("telefone");
+                String sexo = resultSet.getString("sexo");
+                Date nascimento = resultSet.getDate("nascimento");
+                usuario = new Clientes(id, cpf_c, email, senha, nome, telefone, sexo, nascimento);
+            }
+            resultSet.close();
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return usuario;
+    }
 }

@@ -142,4 +142,32 @@ public class ProfissionaisDAO extends GenericDAO {
         }
         return profissional;
     }
+    
+    
+    public Profissionais getbyLogin(String emailx) {
+        Profissionais profissional = null;
+        String sql = "SELECT * from Profissionais WHERE email = ?";
+        try {
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, emailx);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {
+            	Long id = resultSet.getLong("id");
+                String email = resultSet.getString("email");
+                String senha = resultSet.getString("senha");
+                String cpf = resultSet.getString("cpf");
+                String nome = resultSet.getString("nome");
+                String area = resultSet.getString("area");
+                String especialidade = resultSet.getString("especialidade");
+                profissional = new Profissionais(id, cpf, email, senha, nome, area, especialidade);
+            }
+            resultSet.close();
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return profissional;
+    }
 }
