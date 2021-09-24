@@ -1,10 +1,10 @@
-drop schema AgendamentoConsultas;
+drop schema SistemaAgendamento;
 
-create database AgendamentoConsultas;
+create database SistemaAgendamento;
 
-use AgendamentoConsultas;
+use SistemaAgendamento;
 
-create table AgendamentoConsultas.CLIENTES(
+create table SistemaAgendamento.CLIENTES(
 	id bigint not null auto_increment,
 	cpf varchar(11) not null unique,
 	email varchar(128) not null,
@@ -16,7 +16,7 @@ create table AgendamentoConsultas.CLIENTES(
 	primary key (id, cpf)
 	);
 
-create table AgendamentoConsultas.PROFISSIONAIS(
+create table SistemaAgendamento.PROFISSIONAIS(
 	id bigint not null auto_increment,
 	cpf varchar(11) not null unique,
 	email varchar(128) not null,
@@ -27,7 +27,7 @@ create table AgendamentoConsultas.PROFISSIONAIS(
 	primary key (id, cpf)
     );
 
-create table AgendamentoConsultas.CONSULTAS(
+create table SistemaAgendamento.CONSULTAS(
 	id bigint not null auto_increment,
 
 	id_C bigint not null,
@@ -42,29 +42,29 @@ create table AgendamentoConsultas.CONSULTAS(
     primary key (id)
 	);
 
-insert into AgendamentoConsultas.CLIENTES(cpf, email, senha, nome) 
+insert into SistemaAgendamento.CLIENTES(cpf, email, senha, nome) 
 	values  ('11122233344', 'luciana.souza@estudante.ufscar.br', '1234', 'Luciana Souza');
 
-insert into AgendamentoConsultas.CLIENTES(cpf, email, senha, nome) 
+insert into SistemaAgendamento.CLIENTES(cpf, email, senha, nome) 
 	values  ('22233344455', 'jean.araujo@estudante.ufscar.br', '1234', 'Jean Araujo');
 
-insert into AgendamentoConsultas.CLIENTES(cpf, email, senha, nome) 
+insert into SistemaAgendamento.CLIENTES(cpf, email, senha, nome) 
 	values  ('33344455566', 'agiacomini@estudante.ufscar.br', '1234', 'Anderson Henrique');
 
-insert into AgendamentoConsultas.PROFISSIONAIS(cpf, email, senha, nome, area, especialidade) 
+insert into SistemaAgendamento.PROFISSIONAIS(cpf, email, senha, nome, area, especialidade) 
 	values  ('11122233344', 'luciana.souza@estudante.ufscar.br', '1234', 'Luciana Souza', 'medicina', 'médica cardiologista');
 
-insert into AgendamentoConsultas.PROFISSIONAIS(cpf, email, senha, nome, area, especialidade) 
+insert into SistemaAgendamento.PROFISSIONAIS(cpf, email, senha, nome, area, especialidade) 
 	values  ('22233344455', 'jean.araujo@estudante.ufscar.br', '1234', 'Jean Araujo', 'direito', 'advogado criminal');
 
-insert into AgendamentoConsultas.PROFISSIONAIS(cpf, email, senha, nome, area, especialidade) 
+insert into SistemaAgendamento.PROFISSIONAIS(cpf, email, senha, nome, area, especialidade) 
 	values  ('33344455566', 'agiacomini@estudante.ufscar.br', '1234', 'Anderson Henrique', 'psicologia', 'psicólogo infantil');
 
-insert into AgendamentoConsultas.CONSULTAS(id_C, cpf_C, id_P, cpf_P, agendamento)
+insert into SistemaAgendamento.CONSULTAS(id_C, cpf_C, id_P, cpf_P, agendamento)
 	values (1, '11122233344', 2, '22233344455', '2021-10-10 10:00:00');
 
-insert into AgendamentoConsultas.CONSULTAS(id_C, cpf_C, id_P, cpf_P, agendamento)
+insert into SistemaAgendamento.CONSULTAS(id_C, cpf_C, id_P, cpf_P, agendamento)
 	values (2, '22233344455', 3,'33344455566', '2021-10-11 11:00:00');
 
-insert into AgendamentoConsultas.CONSULTAS(id_C, cpf_C, id_P, cpf_P, agendamento)
+insert into SistemaAgendamento.CONSULTAS(id_C, cpf_C, id_P, cpf_P, agendamento)
 	values (3, '33344455566', 1, '11122233344', '2021-10-12 12:00:00');

@@ -16,14 +16,7 @@
 	<c:if test="${cliente != null}">
 		<input type="hidden" name="id" value="${cliente.id}" />
 	</c:if>
-	private Long id; 
-	private static String cpf; 
-	private String email;
-	private String senha; 
-	private String nome; 
-	private String telefone;
-	private String sexo; 
-	private Date nascimento;
+
 	<tr>
 		<td><label for="cpf">CPF</label></td>
 		<td><input type="text" id="cpf" name="cpf" size="11" required

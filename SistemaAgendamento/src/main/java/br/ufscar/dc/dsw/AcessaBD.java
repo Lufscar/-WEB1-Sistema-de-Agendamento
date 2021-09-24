@@ -14,7 +14,7 @@ public class AcessaBD {
 			/* Setup para uso do banco de dados MySQL */
 			
 			Class.forName("com.mysql.cj.jdbc.Driver");
-		    String url = "jdbc:mysql://localhost:3306/AgendamentoConsultas";
+		    String url = "jdbc:mysql://localhost:3306/SistemaAgendamento";
 			Connection con = (Connection) DriverManager.getConnection(url, "root", "root"); //mudar a senha caso necessario
 		
 			Statement stmt = con.createStatement();
