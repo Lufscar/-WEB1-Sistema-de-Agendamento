@@ -57,7 +57,7 @@ public class Profissionais {
 		this.area = area;
 	}
     
-    public void setCpf(String Cpf) {
+    public void setCpf(String cpf) {
     	this.cpf = cpf;
 	}
     

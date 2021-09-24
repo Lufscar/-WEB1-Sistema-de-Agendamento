@@ -93,11 +93,6 @@ public class ClientesController extends HttpServlet {
     private void insere(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
         request.setCharacterEncoding("UTF-8");
         
-        String titulo = request.getParameter("titulo");
-        String autor = request.getParameter("autor");
-        Integer ano = Integer.parseInt(request.getParameter("ano"));
-        Float preco = Float.parseFloat(request.getParameter("preco"));
-        
         Long id = Long.parseLong(request.getParameter("id"));
         String cpf = request.getParameter("cpf");
         String email = request.getParameter("email");

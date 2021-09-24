@@ -5,7 +5,7 @@
 <table border="1">
 	<caption>
 		<c:choose>
-			<c:when test="${cliente != null}">
+			<c:when test="${profissional != null}">
                                Edição
                            </c:when>
 			<c:otherwise>
@@ -13,52 +13,46 @@
                            </c:otherwise>
 		</c:choose>
 	</caption>
-	<c:if test="${cliente != null}">
-		<input type="hidden" name="id" value="${cliente.id}" />
+	<c:if test="${profissional != null}">
+		<input type="hidden" name="id" value="${profissional.id}" />
 	</c:if>
 	private Long id; 
-	private static String cpf; 
-	private String email;
+	private String email; 
 	private String senha; 
+	private String cpf; 
 	private String nome; 
-	private String telefone;
-	private String sexo; 
-	private Date nascimento;
+	private String area; 
+	private String especialidade;
 	<tr>
 		<td><label for="cpf">CPF</label></td>
 		<td><input type="text" id="cpf" name="cpf" size="11" required
-			value="${cliente.cpf}" /></td>
+			value="${profissional.cpf}" /></td>
 	</tr>
 	<tr>
 		<td><label for="email">E-mail</label></td>
 		<td><input type="text" id="email" name="email" size="128"
-			required value="${cliente.email}" /></td>
+			required value="${profissional.email}" /></td>
 	</tr>
 
 	<tr>
 		<td><label for="senha">Senha</label></td>
 		<td><input type="password" id="senha" name="senha" size="64"
-			required value="${cliente.senha}" /></td>
+			required value="${profissional.senha}" /></td>
 	</tr>
 	<tr>
 		<td><label for="nome">Nome</label></td>
 		<td><input type="text" id="nome" name="nome" size="128" required
-			value="${cliente.nome}" /></td>
+			value="${profissional.nome}" /></td>
 	</tr>
 	<tr>
-		<td><label for="telefone">Telefone</label></td>
+		<td><label for="telefone">Área</label></td>
 		<td><input type="number" id="telefone" name="telefone" size="13"
-			required value="${cliente.telefone}" /></td>
+			required value="${profissional.area}" /></td>
 	</tr>
 	<tr>
-		<td><label for="sexo">Sexo</label></td>
-		<td><input type="text" id="sexo" name="sexo" required size="2"
-			value="${cliente.sexo}" /></td>
-	</tr>
-	<tr>
-		<td><label for="nascimento">Data de nascimento</label></td>
-		<td><input type="date" id="nascimento" name="nascimento" required
-			value="${cliente.nascimento}" /></td>
+		<td><label for="sexo">Especialidade</label></td>
+		<td><input type="text" id="sexo" name="sexo" required size="128"
+			value="${profissional.especialidade}" /></td>
 	</tr>
 	<tr>
 		<td colspan="2" align="center"><input type="submit" value="Salva" /></td>
