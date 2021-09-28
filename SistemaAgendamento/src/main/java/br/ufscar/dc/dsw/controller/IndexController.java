@@ -46,7 +46,7 @@ public class IndexController extends HttpServlet {
 					if (usuario != null) {
 						if (usuario.getSenha().equals(senha)) {
 							request.getSession().setAttribute("id", usuario.getId());
-							response.sendRedirect("cliente/");
+							response.sendRedirect("clientes/");
 							return;
 						} else {
 							erros.add("Senha inválida!");
@@ -54,25 +54,27 @@ public class IndexController extends HttpServlet {
 					} else {
 						erros.add("Usuário não encontrado!");
 					}
+					return;
 				}
 				if (tipo.equals("profissional")) {
 					ProfissionaisDAO dao = new ProfissionaisDAO();
 					Profissionais usuario = dao.getbyLogin(login);
 					if (usuario != null) {
+						System.out.println("TA AQUI33333");
 						if (usuario.getSenha().equals(senha)) {
 							request.getSession().setAttribute("id", usuario.getId());
 							response.sendRedirect("profissional/");
 							return;
 						} else {
-							erros.add("Senha inválida!");
+							erros.add("Senha inválida!"+usuario.getSenha()+usuario.getEmail()+senha);
 						}
 					} else {
 						erros.add("Usuário não encontrado!");
 					}
 				}
-				System.out.println("TA AQUI33333");
+				System.out.println("TA AQUI4444");
 				if (tipo.equals("admin")) {
-					System.out.println("TA AQUI4444");
+					System.out.println("TA AQUI5555");
 					if (senha.equals("admin")) {
 						if (login.equals("admin")) {
 							request.getSession().setAttribute("tipo", tipo);
