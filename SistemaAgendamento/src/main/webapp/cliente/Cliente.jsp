@@ -29,10 +29,10 @@
         <title>Patient Page</title>
     </head>
     <body>
-        <h1><fmt:message key="welcome"/> <%= cliente.getNome() %></h1>
-        <a href="logout">Log out</a>
+        <h1>Olá, <%= cliente.getNome() %>!</h1>
+        <a href="index.jsp">Log out</a>
         
-        <h3><fmt:message key="your_appointments"/></h3>
+        <h3>Seus Agendamentos</h3>
         <table border="1">
             <thead>
                 <tr>
@@ -54,39 +54,35 @@
             </tbody>
         </table>
             
-        <h3><fmt:message key="set_appointment"/></h3>
-        <form action="consulta/create" method="post">
-            <input type="hidden" value="<%= cliente.getId() %>" name="paciente" />
-            <label><fmt:message key="field_medico"/>:</label>
-            <select name="medico">
+        <h3>Marcar novo agendamento</h3>
+        <form action="consulta/criar" method="post">
+            <input type="hidden" value="<%= cliente.getId() %>" name="cliente" />
+            <label>Profissionais:</label>
+            <select name="profissional">
                 <% for (Profissionais p : profissionais) { %>
                 <option
                     value="<%= p.getId() %>">
                     <%= p.getNome() %>
                     -
-                    <fmt:message key="<%= p.getArea() %>"/>
+                    <%= p.getArea() %>
+                    -
+                    <%= p.getEspecialidade() %>
                 </option>
                 <%}%>
             </select><br>
-            <label><fmt:message key="field_date_time"/>:</label><br>
-            <label><fmt:message key="field_day"/>:</label>
+            <label>Data:</label><br>
+            <label>Dia:</label>
             <input name="dia" value="" type="number" min="1" max="31"/>
-            <label><fmt:message key="field_month"/>:</label>
+            <label>Mes:</label>
             <input name="mes" value="" type="number" min="1" max="12"/>
-            <label><fmt:message key="field_year"/>:</label>
+            <label>Ano:</label>
             <input name="ano" value="" type="number"
             min="<%= LocalDateTime.now().getYear() %>"/>
-            <label><fmt:message key="field_hour"/>:</label>
-            <input name="hora" value="" type="number" min="7" max="18"/>
-            <label><fmt:message key="field_minute"/>:</label>
-            <select name="minuto">
-                <option value="0">00</option>
-                <option value="30">30</option>
-            </select>
+            <label>Hora:</label>
+            <input name="hora" value="" type="number" min="7" max="18"/>   
             <br>
-            <input type="submit" value="<fmt:message key="submit"/>" />
+            <input type="submit" value="submit" />
         </form>
-        
     </body>
 </html>
 </fmt:bundle>

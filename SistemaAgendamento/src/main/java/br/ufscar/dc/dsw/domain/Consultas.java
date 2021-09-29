@@ -14,14 +14,10 @@ public class Consultas {
     private int dia;
     private int hora;
 	
-	public Consultas(Long id, Long cliente, Long profissional, String nome_C, String nome_P, String area, String especialidade, int ano, int mes, int dia, int hora){
+	public Consultas(Long id, Long cliente, Long profissional, int ano, int mes, int dia, int hora){
 		this.id = id;
 		this.cliente = cliente;
 		this.profissional = profissional;
-		this.nome_C = nome_C;
-		this.nome_P = nome_P;
-		this.area = area;
-		this.especialidade = especialidade;
 		this.ano = ano;
 		this.mes = mes;
 		this.dia = dia;

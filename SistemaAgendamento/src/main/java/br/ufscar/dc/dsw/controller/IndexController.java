@@ -13,7 +13,7 @@ import br.ufscar.dc.dsw.domain.Clientes;
 import br.ufscar.dc.dsw.domain.Profissionais;
 import br.ufscar.dc.dsw.util.Erro;
 
-@WebServlet(name = "Index", urlPatterns = { "/index.jsp", "/logout.jsp" })
+@WebServlet(name = "Index", urlPatterns = { "/index.jsp" })
 public class IndexController extends HttpServlet {
 
 	private static final long serialVersionUID = 1L;
@@ -45,7 +45,7 @@ public class IndexController extends HttpServlet {
 					if (usuario != null) {
 						if (usuario.getSenha().equals(senha)) {
 							request.getSession().setAttribute("cliente", usuario);
-							response.sendRedirect("Cliente.jsp");
+							response.sendRedirect("cliente/Cliente.jsp");
 							return;
 						} else {
 							erros.add("Senha inválida!");
@@ -62,7 +62,7 @@ public class IndexController extends HttpServlet {
 					if (usuario != null) {
 						if (usuario.getSenha().equals(senha)) {
 							request.getSession().setAttribute("profissional", usuario);
-							response.sendRedirect("profissional.jsp");
+							response.sendRedirect("profissional/profissional.jsp");
 							return;
 						} else {
 							erros.add("Senha inválida!"+usuario.getSenha()+usuario.getEmail()+senha);

@@ -31,15 +31,11 @@ create table SistemaAgendamento.CONSULTAS(
 	id bigint not null auto_increment,
 
 	id_C bigint not null,
-	nome_C varchar(128) not null,  
 	constraint CLIENTES_fk foreign  key (id_C) references CLIENTES(id),
 
 	id_P bigint not null,
-	nome_P varchar(128) not null,  
 	constraint PROFISSIONAIS_fk foreign  key (id_P) references PROFISSIONAIS(id),
-	
-	area varchar(128) not null,
-	especialidade varchar(128) not null,
+
 	ano int not null,
 	mes int not null,
 	dia int not null, 
