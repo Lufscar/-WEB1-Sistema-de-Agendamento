@@ -26,7 +26,7 @@ public class CriaConsultasController extends HttpServlet {
             ConsultasDAO consultaDAO = new ConsultasDAO();
             Consultas consulta = new Consultas(Long.parseLong("99"), Long.parseLong(request.getParameter("cliente")), Long.parseLong(request.getParameter("profissional")), Integer.parseInt(request.getParameter("ano")), Integer.parseInt(request.getParameter("mes")),Integer.parseInt(request.getParameter("dia")), Integer.parseInt(request.getParameter("hora")));
             consultaDAO.insert(consulta);
-            response.sendRedirect("/SistemaAgendamento/cliente/cliente.jsp");
+            response.sendRedirect("/SistemaAgendamento/Cliente.jsp");
         } catch (Exception ex) {
             throw new RuntimeException(ex);
         }

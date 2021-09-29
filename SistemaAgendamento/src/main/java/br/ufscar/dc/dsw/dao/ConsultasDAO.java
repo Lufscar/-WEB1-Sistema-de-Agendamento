@@ -13,7 +13,7 @@ public class ConsultasDAO extends GenericDAO {
 	
     public void insert(Consultas consulta) throws Exception {
     	//confere se o cliente já possui consulta marcada
-    	String sql = "SELECT * from CONSULTAS WHERE ano = ? and mes = ? and dia = ? and hora = ? and minuto = ? and cliente = ?";
+    	String sql = "SELECT * from CONSULTAS WHERE ano = ? and mes = ? and dia = ? and hora = ? and id_C = ?";
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);

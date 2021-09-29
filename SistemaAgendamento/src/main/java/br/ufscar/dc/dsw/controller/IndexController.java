@@ -45,7 +45,7 @@ public class IndexController extends HttpServlet {
 					if (usuario != null) {
 						if (usuario.getSenha().equals(senha)) {
 							request.getSession().setAttribute("cliente", usuario);
-							response.sendRedirect("cliente/Cliente.jsp");
+							response.sendRedirect("Cliente.jsp");
 							return;
 						} else {
 							erros.add("Senha inválida!");
@@ -62,7 +62,7 @@ public class IndexController extends HttpServlet {
 					if (usuario != null) {
 						if (usuario.getSenha().equals(senha)) {
 							request.getSession().setAttribute("profissional", usuario);
-							response.sendRedirect("profissional/profissional.jsp");
+							response.sendRedirect("Profissional.jsp");
 							return;
 						} else {
 							erros.add("Senha inválida!"+usuario.getSenha()+usuario.getEmail()+senha);
