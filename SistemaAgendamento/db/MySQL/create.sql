@@ -31,15 +31,21 @@ create table SistemaAgendamento.CONSULTAS(
 	id bigint not null auto_increment,
 
 	id_C bigint not null,
-	cpf_C varchar(11) not null,  
-	constraint CLIENTES_fk foreign  key (id_C, cpf_C) references CLIENTES(id, cpf),
+	nome_C varchar(128) not null,  
+	constraint CLIENTES_fk foreign  key (id_C) references CLIENTES(id),
 
 	id_P bigint not null,
-	cpf_P varchar(11) not null,  
-	constraint PROFISSIONAIS_fk foreign  key (id_P, cpf_P) references PROFISSIONAIS(id, cpf),
-
-	agendamento datetime, 
-    primary key (id)
+	nome_P varchar(128) not null,  
+	constraint PROFISSIONAIS_fk foreign  key (id_P) references PROFISSIONAIS(id),
+	
+	area varchar(128) not null,
+	especialidade varchar(128) not null,
+	ano int not null,
+	mes int not null,
+	dia int not null, 
+	hora int not null,
+	primary key (id),
+	CONSTRAINT CH_Contulta CHECK (ano>=2000 and ano <=3000 AND mes >= 1 AND mes <= 12 and dia >= 1 and dia <= 31)
 	);
 
 insert into SistemaAgendamento.CLIENTES(cpf, email, senha, nome) 
@@ -60,11 +66,11 @@ insert into SistemaAgendamento.PROFISSIONAIS(cpf, email, senha, nome, area, espe
 insert into SistemaAgendamento.PROFISSIONAIS(cpf, email, senha, nome, area, especialidade) 
 	values  ('33344455566', 'agiacomini@estudante.ufscar.br', '1234', 'Anderson Henrique', 'psicologia', 'psicólogo infantil');
 
-insert into SistemaAgendamento.CONSULTAS(id_C, cpf_C, id_P, cpf_P, agendamento)
-	values (1, '11122233344', 2, '22233344455', '2021-10-10 10:00:00');
+insert into SistemaAgendamento.CONSULTAS(id_C, id_P, nome_C, nome_P, area, especialidade, ano, mes, dia, hora)
+	values (1, 2, 'Luciana Souza', 'Jean Araujo', 'direito', 'advogado criminal', 2021, 10, 2, 14);
 
-insert into SistemaAgendamento.CONSULTAS(id_C, cpf_C, id_P, cpf_P, agendamento)
-	values (2, '22233344455', 3,'33344455566', '2021-10-11 11:00:00');
+insert into SistemaAgendamento.CONSULTAS(id_C, id_P, nome_C, nome_P, area, especialidade, ano, mes, dia, hora)
+	values (2, 3, 'Jean Araujo', 'Anderson Henrique', 'psicologia', 'psicólogo infantil', 2021, 9, 7, 11);
 
-insert into SistemaAgendamento.CONSULTAS(id_C, cpf_C, id_P, cpf_P, agendamento)
-	values (3, '33344455566', 1, '11122233344', '2021-10-12 12:00:00');
+insert into SistemaAgendamento.CONSULTAS(id_C, id_P, nome_C, nome_P, area, especialidade, ano, mes, dia, hora)
+	values (3, 1, 'Anderson Henrique', 'Luciana Souza', 'medicina', 'médica cardiologista', 2021, 12, 3, 10);

@@ -37,16 +37,15 @@ public class IndexController extends HttpServlet {
 				erros.add("Senha não informada!");
 			}
 			
-			System.out.println("TA AQUI"+ tipo);
 			if (!erros.isExisteErros()) {
-				System.out.println("TA AQUI22222"+ tipo);
+				
 				if (tipo.equals("cliente")) {
 					ClientesDAO dao = new ClientesDAO();
 					Clientes usuario = dao.getbyLogin(login);
 					if (usuario != null) {
 						if (usuario.getSenha().equals(senha)) {
-							request.getSession().setAttribute("id", usuario.getId());
-							response.sendRedirect("clientes/");
+							request.getSession().setAttribute("cliente", usuario);
+							response.sendRedirect("Cliente.jsp");
 							return;
 						} else {
 							erros.add("Senha inválida!");
@@ -56,14 +55,14 @@ public class IndexController extends HttpServlet {
 					}
 					return;
 				}
+				
 				if (tipo.equals("profissional")) {
 					ProfissionaisDAO dao = new ProfissionaisDAO();
 					Profissionais usuario = dao.getbyLogin(login);
 					if (usuario != null) {
-						System.out.println("TA AQUI33333");
 						if (usuario.getSenha().equals(senha)) {
-							request.getSession().setAttribute("id", usuario.getId());
-							response.sendRedirect("profissional/");
+							request.getSession().setAttribute("profissional", usuario);
+							response.sendRedirect("profissional.jsp");
 							return;
 						} else {
 							erros.add("Senha inválida!"+usuario.getSenha()+usuario.getEmail()+senha);
@@ -72,9 +71,8 @@ public class IndexController extends HttpServlet {
 						erros.add("Usuário não encontrado!");
 					}
 				}
-				System.out.println("TA AQUI4444");
+				
 				if (tipo.equals("admin")) {
-					System.out.println("TA AQUI5555");
 					if (senha.equals("admin")) {
 						if (login.equals("admin")) {
 							request.getSession().setAttribute("tipo", tipo);

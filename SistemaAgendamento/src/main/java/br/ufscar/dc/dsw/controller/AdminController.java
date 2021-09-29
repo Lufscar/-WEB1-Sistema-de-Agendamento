@@ -7,8 +7,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import br.ufscar.dc.dsw.domain.Profissionais;
-import br.ufscar.dc.dsw.domain.Clientes;
 import br.ufscar.dc.dsw.util.Erro;
 
 @WebServlet(urlPatterns = "/admin/*")

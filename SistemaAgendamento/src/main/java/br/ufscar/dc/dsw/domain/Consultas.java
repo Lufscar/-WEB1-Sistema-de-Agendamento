@@ -1,21 +1,30 @@
 package br.ufscar.dc.dsw.domain;
-import java.util.Date;
-
 
 public class Consultas {
 
 	private Long id;
-	private Clientes cliente;
-	private Profissionais profissional;
-	private Date data;
-	private Integer hora;
+	private Long cliente;
+	private Long profissional;
+	private String nome_C;
+	private String nome_P;
+	private String area;
+	private String especialidade;
+	private int ano;
+    private int mes;
+    private int dia;
+    private int hora;
 	
-	
-	public Consultas(Long id, Clientes cliente, Profissionais profissional, Date data, Integer hora){
+	public Consultas(Long id, Long cliente, Long profissional, String nome_C, String nome_P, String area, String especialidade, int ano, int mes, int dia, int hora){
 		this.id = id;
 		this.cliente = cliente;
 		this.profissional = profissional;
-		this.data = data;
+		this.nome_C = nome_C;
+		this.nome_P = nome_P;
+		this.area = area;
+		this.especialidade = especialidade;
+		this.ano = ano;
+		this.mes = mes;
+		this.dia = dia;
 		this.hora = hora;
 	}
 	
@@ -27,36 +36,78 @@ public class Consultas {
         this.id = id;
     }
     
-    public Clientes getCliente() {
+    public Long getCliente() {
 		return cliente;
 	}
     
-    public void setCliente(Clientes cliente) {
+    public void setCliente(Long cliente) {
 		this.cliente = cliente;
 	}
     
-    public Profissionais getProfissional() {
+    public Long getProfissional() {
 		return profissional;
 	}
     
-    public void setProfissional(Profissionais profissional) {
+    public void setProfissional(Long profissional) {
 		this.profissional = profissional;
 	}
     
-    public Date getData() {
-		return data;
+    public String getNome_C() {
+		return this.nome_C;
 	}
     
-	public void setData(Date data) {
-		this.data = data;
+    public void setNome_C(String cliente) {
+		this.nome_C = cliente;
 	}
+    
+    public String getNome_P() {
+		return this.nome_P;
+	}
+    
+    public void setNome_P(String profissional) {
+		this.nome_P = profissional;
+	}
+    
+    public String getArea() {
+		return this.area;
+	}
+    
+    public void setArea(String area) {
+		this.area = area;
+	}
+    
+    public String getEspecialidade() {
+		return this.especialidade;
+	}
+    
+    public void setEspecialidade(String especialidade) {
+		this.especialidade = especialidade;
+	}
+    public String getData() {
+        return String.format("%02d/%02d/%04d - %02d:00", 
+        this.dia, this.mes, this.ano, this.hora);
+    }
+    
+    public void setData(int ano, int mes, int dia, int hora){
+        this.ano = ano;
+        this.mes = mes;
+        this.dia = dia;
+        this.hora = hora;
+    }
 	
-	public Integer getHora() {
-		return hora;
-	}
-	
-	public void setHora(Integer hora) {
-		this.hora = hora;
-	}
+    public int getAno() {
+        return ano;
+    }
 
+    public int getMes() {
+        return mes;
+    }
+
+    public int getDia() {
+        return dia;
+    }
+
+    public int getHora() {
+        return hora;
+    }
 }

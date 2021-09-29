@@ -1,15 +1,9 @@
 package br.ufscar.dc.dsw.controller;
 
 import br.ufscar.dc.dsw.dao.ProfissionaisDAO;
-import br.ufscar.dc.dsw.dao.ConsultasDAO;
-import br.ufscar.dc.dsw.dao.ProfissionaisDAO;
-import br.ufscar.dc.dsw.domain.Profissionais;
-import br.ufscar.dc.dsw.domain.Consultas;
 import br.ufscar.dc.dsw.domain.Profissionais;
 import java.io.IOException;
-import java.sql.Date;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,7 +13,6 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.sql.Date;
 
 @WebServlet(urlPatterns = "/profissionais/*")
 public class ProfissionaisController extends HttpServlet {

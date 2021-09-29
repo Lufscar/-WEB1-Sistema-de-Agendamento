@@ -39,9 +39,9 @@ public class ProfissionaisDAO extends GenericDAO {
         }
     }
 
-    public List<Profissionais> getAll() {
+    public ArrayList<Profissionais> getAll() {
 
-        List<Profissionais> listaProfissionais = new ArrayList<>();
+        ArrayList<Profissionais> listaProfissionais = new ArrayList<>();
 
         String sql = "SELECT * from Profissionais order by nome ASC";
 
@@ -131,7 +131,7 @@ public class ProfissionaisDAO extends GenericDAO {
                 String area = resultSet.getString("area");
                 String especialidade = resultSet.getString("especialidade");
  
-                profissional = new Profissionais(id, cpf, email, senha, nome, area, especialidade);
+                profissional = new Profissionais(id, email, senha, cpf, nome, area, especialidade);
             }
 
             resultSet.close();
@@ -160,7 +160,7 @@ public class ProfissionaisDAO extends GenericDAO {
                 String nome = resultSet.getString("nome");
                 String area = resultSet.getString("area");
                 String especialidade = resultSet.getString("especialidade");
-                profissional = new Profissionais(id, cpf, email, senha, nome, area, especialidade);
+                profissional = new Profissionais(id, email, senha, cpf, nome, area, especialidade);
             }
             resultSet.close();
             statement.close();
