@@ -62,11 +62,11 @@ insert into SistemaAgendamento.PROFISSIONAIS(cpf, email, senha, nome, area, espe
 insert into SistemaAgendamento.PROFISSIONAIS(cpf, email, senha, nome, area, especialidade) 
 	values  ('33344455566', 'agiacomini@estudante.ufscar.br', '1234', 'Anderson Henrique', 'psicologia', 'psicólogo infantil');
 
-insert into SistemaAgendamento.CONSULTAS(id_C, id_P, nome_C, nome_P, area, especialidade, ano, mes, dia, hora)
-	values (1, 2, 'Luciana Souza', 'Jean Araujo', 'direito', 'advogado criminal', 2021, 10, 2, 14);
+insert into SistemaAgendamento.CONSULTAS(id_C, id_P, ano, mes, dia, hora)
+	values (1, 2, 2021, 10, 2, 14);
 
-insert into SistemaAgendamento.CONSULTAS(id_C, id_P, nome_C, nome_P, area, especialidade, ano, mes, dia, hora)
-	values (2, 3, 'Jean Araujo', 'Anderson Henrique', 'psicologia', 'psicólogo infantil', 2021, 9, 7, 11);
+insert into SistemaAgendamento.CONSULTAS(id_C, id_P, ano, mes, dia, hora)
+	values (2, 3, 2021, 9, 7, 11);
 
-insert into SistemaAgendamento.CONSULTAS(id_C, id_P, nome_C, nome_P, area, especialidade, ano, mes, dia, hora)
-	values (3, 1, 'Anderson Henrique', 'Luciana Souza', 'medicina', 'médica cardiologista', 2021, 12, 3, 10);
+insert into SistemaAgendamento.CONSULTAS(id_C, id_P, ano, mes, dia, hora)
+	values (3, 1, 2021, 12, 3, 10);
