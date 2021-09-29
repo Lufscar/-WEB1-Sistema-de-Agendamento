@@ -1,7 +1,6 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="br.ufscar.dc.dsw.dao.ProfissionaisDAO"%>
+<%@page import="br.ufscar.dc.dsw.domain.Profissionais"%>
 <html>
 <head>
 <title>Profissionais</title>
@@ -15,25 +14,19 @@
 		</h2>
 	</div>
 	<div align="center">
-		<c:choose>
-			<c:when test="${profissional != null}">
+		<%
+		Profissionais profissional = (Profissionais) request.getSession().getAttribute("profissional");
+		if (profissional != null) {%>
+			
 				<form action="atualizacao" method="post">
 					<%@include file="campos.jsp"%>
 				</form>
-			</c:when>
-			<c:otherwise>
+			<%} else { %>
 				<form action="insercao" method="post">
 					<%@include file="campos.jsp"%>
 				</form>
-			</c:otherwise>
-		</c:choose>
+			<%} %>
 	</div>
-	<c:if test="${!empty requestScope.mensagens}">
-		<ul class="erro">
-			<c:forEach items="${requestScope.mensagens}" var="mensagem">
-				<li>${mensagem}</li>
-			</c:forEach>
-		</ul>
-	</c:if>
+	
 </body>
 </html>

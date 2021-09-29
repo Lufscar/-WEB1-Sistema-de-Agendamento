@@ -1,21 +1,27 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="br.ufscar.dc.dsw.dao.ClientesDAO"%>
+<%@page import="br.ufscar.dc.dsw.domain.Clientes"%>
 <table border="1">
+	
 	<caption>
-		<c:choose>
-			<c:when test="${cliente != null}">
-                               Edição
-                           </c:when>
-			<c:otherwise>
-                               Cadastro
-                           </c:otherwise>
-		</c:choose>
+		<%
+		Clientes cliente = (Clientes) request.getSession().getAttribute("cliente");
+		if (cliente != null) {%>
+			
+				<form action="atualizacao" method="post">
+					<%@include file="campos.jsp"%>
+				</form>
+			<%} else { %>
+				<form action="insercao" method="post">
+					<%@include file="campos.jsp"%>
+				</form>
+			<%} %>
 	</caption>
-	<c:if test="${cliente != null}">
+	
+	<%if (cliente != null) { %>
+
 		<input type="hidden" name="id" value="${cliente.id}" />
-	</c:if>
+	<%} %>
 
 	<tr>
 		<td><label for="cpf">CPF</label></td>

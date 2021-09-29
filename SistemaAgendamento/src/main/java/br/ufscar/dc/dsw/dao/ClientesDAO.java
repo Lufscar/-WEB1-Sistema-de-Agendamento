@@ -6,13 +6,10 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.List;
 import java.sql.Date;
 
 
 import br.ufscar.dc.dsw.domain.Clientes;
-import br.ufscar.dc.dsw.domain.Profissionais;
-import br.ufscar.dc.dsw.domain.Consultas;
 
 public class ClientesDAO extends GenericDAO {
 
@@ -41,12 +38,13 @@ public class ClientesDAO extends GenericDAO {
             throw new RuntimeException(e);
         }
     }
+    
+    
+    public ArrayList<Clientes> getAll() {
 
-    public List<Clientes> getAll() {
+    	ArrayList<Clientes> listaClientes = new ArrayList<>();
 
-        List<Clientes> listaClientes = new ArrayList<>();
-
-        String sql = "SELECT * from CLIENTES order by nome";
+    	String sql = "SELECT * from CLIENTES order by nome";
 
         try {
             Connection conn = this.getConnection();
@@ -75,6 +73,8 @@ public class ClientesDAO extends GenericDAO {
         }
         return listaClientes;
     }
+
+
 
     public void delete(Clientes cliente) {
         String sql = "DELETE FROM CLIENTES where cpf = ?";

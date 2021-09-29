@@ -11,16 +11,8 @@
     </head>
     <body>
         <h1>Autenticação de Usuário</h1>
-        <c:if test="${mensagens.existeErros}">
-            <div id="erro">
-                <ul>
-                    <c:forEach var="erro" items="${mensagens.erros}">
-                        <li> ${erro} </li>
-                    </c:forEach>
-                </ul>
-            </div>
-        </c:if>
-        <form method="post" action="index.jsp">
+
+        <form method="post" action="autentifica.jsp">
             <table>
                 <tr>
                     <th>Login: </th>
@@ -49,5 +41,6 @@
                 </tr>
             </table>
         </form>
+        <a href="Index.jsp">Voltar para a tela inicial</a>
     </body>
 </html>

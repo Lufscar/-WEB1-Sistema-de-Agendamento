@@ -24,10 +24,10 @@
         <title>Profissional Page</title>
     </head>
     <body>
-        <h1><fmt:message key="welcome"/> <%= profissional.getNome() %></h1>
-        <a href="logout">Log out</a>
+        <h1>Olá, <%= profissional.getNome() %></h1>
+        <a href="login">Log out</a>
         
-        <h3><fmt:message key="your_appointments"/></h3>
+        <h3>Seus Agendamentos</h3>
         <table border="1">
             <thead>
                 <tr>

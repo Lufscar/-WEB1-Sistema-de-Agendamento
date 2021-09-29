@@ -170,4 +170,36 @@ public class ProfissionaisDAO extends GenericDAO {
         }
         return profissional;
     }
+    
+    public ArrayList<Profissionais> getbyArea(String aarea) {
+
+        ArrayList<Profissionais> listaProfissionais = new ArrayList<>();
+
+        String sql = "SELECT * from Profissionais WHERE area = ? order by nome ASC";
+
+        try {
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setString(1, aarea);
+            ResultSet resultSet = statement.executeQuery();
+            while (resultSet.next()) {
+                Long id = resultSet.getLong("id");
+            	String email = resultSet.getString("email");
+                String senha = resultSet.getString("senha");
+                String cpf = resultSet.getString("cpf");
+                String nome = resultSet.getString("nome");
+                String area = resultSet.getString("area");
+                String especialidade = resultSet.getString("especialidade");
+                Profissionais profissional = new Profissionais(id, email, senha, cpf, nome, area, especialidade);
+                listaProfissionais.add(profissional);
+            }
+
+            resultSet.close();
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return listaProfissionais;
+    }
 }

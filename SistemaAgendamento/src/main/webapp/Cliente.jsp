@@ -30,7 +30,7 @@
     </head>
     <body>
         <h1>Olá, <%= cliente.getNome() %>!</h1>
-        <a href="index.jsp">Log out</a>
+        <a href="login.jsp">Log out</a>
         
         <h3>Seus Agendamentos</h3>
         <table border="1">

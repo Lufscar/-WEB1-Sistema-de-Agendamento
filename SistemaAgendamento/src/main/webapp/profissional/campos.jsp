@@ -1,28 +1,25 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="br.ufscar.dc.dsw.dao.ProfissionaisDAO"%>
+<%@page import="br.ufscar.dc.dsw.domain.Profissionais"%>
 <table border="1">
 	<caption>
-		<c:choose>
-			<c:when test="${profissional != null}">
-                               Edição
-                           </c:when>
-			<c:otherwise>
-                               Cadastro
-                           </c:otherwise>
-		</c:choose>
+		<%
+		Profissionais profissional = (Profissionais) request.getSession().getAttribute("profissional");
+		if (profissional != null) {%>
+			
+				<form action="atualizacao" method="post">
+					<%@include file="campos.jsp"%>
+				</form>
+			<%} else { %>
+				<form action="insercao" method="post">
+					<%@include file="campos.jsp"%>
+				</form>
+			<%} %>
 	</caption>
-	<c:if test="${profissional != null}">
+	<%if (profissional != null) {%>
 		<input type="hidden" name="id" value="${profissional.id}" />
-	</c:if>
-	private Long id; 
-	private String email; 
-	private String senha; 
-	private String cpf; 
-	private String nome; 
-	private String area; 
-	private String especialidade;
+	<%}%>
+
 	<tr>
 		<td><label for="cpf">CPF</label></td>
 		<td><input type="text" id="cpf" name="cpf" size="11" required
@@ -45,7 +42,7 @@
 			value="${profissional.nome}" /></td>
 	</tr>
 	<tr>
-		<td><label for="telefone">Área</label></td>
+		<td><label for="telefone">�rea</label></td>
 		<td><input type="number" id="telefone" name="telefone" size="13"
 			required value="${profissional.area}" /></td>
 	</tr>
