@@ -2,6 +2,7 @@
 <%@page import="br.ufscar.dc.dsw.dao.ProfissionaisDAO"%>
 <%@page import="br.ufscar.dc.dsw.domain.Profissionais"%>
 <%@page import="java.util.List"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
 <head>
 <title>Profissionais</title>
@@ -30,13 +31,13 @@
 				<th>Area</th>
 				<th>Sexo</th>
 				<th>Especialidade</th>
-				<th>Ações</th>
+				<th>AÃ§Ãµes</th>
 				
 			</tr>
 			
 			<%
-			List(Profissionais) profissionaiss = (List) request.getSession().getAttribute("listaProfissionais");
-			for (Clientes cliente: cliente) {%>
+			List(Profissionais) profissionais = (List) request.getSession().getAttribute("listaProfissionais");
+			for (Profissionais profissional: profissionais) {%>
 				<tr>
 					<td>${profissional.id}</td>
 					<td>${profissional.cpf}</td>
@@ -46,11 +47,11 @@
 					<td>${profissional.telefone}</td>
 					<td>${profissional.sexo}</td>
 					<td>${profissional.nascimento}</td>
-					<td><a href="/<%= contextPath%>/Ctlprofissional/edicao?id=${profissional.id}">Edição</a>
+					<td><a href="/<%= contextPath%>/Ctlprofissional/edicao?id=${profissional.id}">EdiÃ§Ã£o</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
 						href="/<%= contextPath%>/Ctlprofissional/remocao?id=${profissional.id}"
 						onclick="return confirm('Tem certeza de que deseja excluir este profissional?');">
-							Remoção </a></td>
+							RemoÃ§Ã£o </a></td>
 				</tr>
 			<%} %>
 			

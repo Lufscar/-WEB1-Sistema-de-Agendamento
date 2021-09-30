@@ -1,10 +1,11 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="br.ufscar.dc.dsw.dao.ProfissionaisDAO"%>
 <%@page import="br.ufscar.dc.dsw.domain.Profissionais"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <table border="1">
 	<caption>
 		<%
-		Profissionais profissional = (Profissionais) request.getSession().getAttribute("profissional");
+		
 		if (profissional != null) {%>
 			
 				<form action="atualizacao" method="post">
@@ -42,7 +43,7 @@
 			value="${profissional.nome}" /></td>
 	</tr>
 	<tr>
-		<td><label for="telefone">Área</label></td>
+		<td><label for="telefone">Ãrea</label></td>
 		<td><input type="number" id="telefone" name="telefone" size="13"
 			required value="${profissional.area}" /></td>
 	</tr>

@@ -2,6 +2,8 @@
 <%@page import="br.ufscar.dc.dsw.dao.ClientesDAO"%>
 <%@page import="br.ufscar.dc.dsw.domain.Clientes"%>
 <%@page import="java.util.List"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
+
 <html>
 <head>
 <title>Clientes</title>
@@ -30,7 +32,7 @@
 				<th>Telefone</th>
 				<th>Sexo</th>
 				<th>Data de Nascimento</th>
-				<th>Ações</th>
+				<th>AÃ§Ãµes</th>
 				
 			</tr>
 			
@@ -46,11 +48,11 @@
 					<td>${cliente.telefone}</td>
 					<td>${cliente.sexo}</td>
 					<td>${cliente.nascimento}</td>
-					<td><a href="/<%= contextPath%>/Ctlcliente/edicao?id=${cliente.id}">Edição</a>
+					<td><a href="/<%= contextPath%>/Ctlcliente/edicao?id=${cliente.id}">EdiÃ§Ã£o</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
 						href="/<%= contextPath%>/Ctlcliente/remocao?id=${cliente.id}"
 						onclick="return confirm('Tem certeza de que deseja excluir este cliente?');">
-							Remoção </a></td>
+							RemoÃ§Ã£o </a></td>
 				</tr>
 			<%} %>
 			

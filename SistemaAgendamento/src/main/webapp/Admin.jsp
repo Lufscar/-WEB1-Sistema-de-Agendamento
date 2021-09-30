@@ -29,6 +29,8 @@
     <body>
         <h1>Olá, Admin</h1>
         <a href="logout">Log out</a>
+        <a href="Ctlcliente">link</a> crud cliente
+        <a href="Ctlprofissional">link</a> crud profissional
         <h3>CRUD Profissionais</h3>
         <a href="Ctlcliente/cadastro">add</a>
         <table border="1">

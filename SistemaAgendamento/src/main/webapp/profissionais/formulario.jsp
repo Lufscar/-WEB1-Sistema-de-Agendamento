@@ -1,6 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%@page import="br.ufscar.dc.dsw.dao.ProfissionaisDAO"%>
 <%@page import="br.ufscar.dc.dsw.domain.Profissionais"%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <html>
 <head>
 <title>Profissionais</title>
