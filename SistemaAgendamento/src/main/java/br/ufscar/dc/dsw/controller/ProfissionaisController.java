@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebServlet(urlPatterns = "/profissional/*")
+@WebServlet(urlPatterns = "/Ctlprofissional/*")
 public class ProfissionaisController extends HttpServlet {
 
     private static final long serialVersionUID = 1L; 
@@ -66,7 +66,7 @@ public class ProfissionaisController extends HttpServlet {
     private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Profissionais> listaProfissionais = dao.getAll();
         request.setAttribute("listaProfissionais", listaProfissionais);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/profissionais/lista.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("profissionais/lista.jsp");
         dispatcher.forward(request, response);
     }
     
@@ -79,7 +79,7 @@ public class ProfissionaisController extends HttpServlet {
         Long id = Long.parseLong(request.getParameter("id"));
         Profissionais profissional = dao.get(id);
         request.setAttribute("profissional", profissional);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/profissional/formulario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/profissionais/formulario.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -114,7 +114,7 @@ public class ProfissionaisController extends HttpServlet {
         
         Profissionais profissional = new Profissionais(id, cpf, email, senha, nome, area, especialidade);
         dao.update(profissional);
-        response.sendRedirect("profissional");
+        response.sendRedirect("Ctlprofissional");
     }
 
     private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -122,6 +122,6 @@ public class ProfissionaisController extends HttpServlet {
 
         Profissionais profissional = new Profissionais(id);
         dao.delete(profissional);
-        response.sendRedirect("profissional");
+        response.sendRedirect("Ctlprofissional");
     }
 }

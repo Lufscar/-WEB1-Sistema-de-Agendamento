@@ -14,7 +14,7 @@
 		<h1>Gerenciamento de Profissionais</h1>
 		<h2>
 			<a href="/<%=contextPath%>">Menu Principal</a> &nbsp;&nbsp;&nbsp; <a
-				href="/<%=contextPath%>/profissionais/cadastro">Adicione Novo Profissional</a>
+				href="/<%=contextPath%>/Ctlprofissional/cadastro">Adicione Novo Profissional</a>
 		</h2>
 	</div>
 
@@ -46,9 +46,9 @@
 					<td>${profissional.telefone}</td>
 					<td>${profissional.sexo}</td>
 					<td>${profissional.nascimento}</td>
-					<td><a href="/<%= contextPath%>/profissionais/edicao?id=${profissional.id}">Edição</a>
+					<td><a href="/<%= contextPath%>/Ctlprofissional/edicao?id=${profissional.id}">Edição</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
-						href="/<%= contextPath%>/profissionais/remocao?id=${profissional.id}"
+						href="/<%= contextPath%>/Ctlprofissional/remocao?id=${profissional.id}"
 						onclick="return confirm('Tem certeza de que deseja excluir este profissional?');">
 							Remoção </a></td>
 				</tr>

@@ -30,7 +30,7 @@
         <h1>Olá, Admin</h1>
         <a href="logout">Log out</a>
         <h3>CRUD Profissionais</h3>
-        <a href="cliente/cadastro">add</a>
+        <a href="Ctlcliente/cadastro">add</a>
         <table border="1">
             <thead>
                 <tr>
@@ -51,8 +51,8 @@
                         <td><%= profissional.getEspecialidade()%></td>
                         <td><%= profissional.getEmail()%></td>
                         <td>
-                            <a href="profissional/edicao?id=<%= profissional.getId() %>">Editar</a>
-                            <a href="profissional/delete?id=<%= profissional.getId() %>">Excluir</a>
+                            <a href="Ctlprofissional/edicao?id=<%= profissional.getId() %>">Editar</a>
+                            <a href="Ctlprofissional/delete?id=<%= profissional.getId() %>">Excluir</a>
                         </td>
                     </tr>
                 <%}%>
@@ -60,7 +60,7 @@
         </table>
             
         <h3>CRUD Clientes</h3>
-        <a href="cliente/cadastro"><fmt:message key="add" /></a>
+        <a href="Ctlcliente/cadastro">add</a>
         <table border="1">
             <thead>
                 <tr>
@@ -70,24 +70,24 @@
                     <th>Data de nascimento</th>
                     <th>Telefone</th>
                     <th>Email</th>
-                    <th><fmt:message key="actions" /></th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
-                <% for (Clientes cliente : clientes) { %>
-                    <tr>
-                        <td><%= cliente.getCpf()%></td>
-                        <td><%= cliente.getNome()%></td>
-                        <td><%= cliente.getSexo()%></td>
-                        <td><%= cliente.getNascimento()%></td>
-                        <td><%= cliente.getTelefone()%></td>
-                        <td><%= cliente.getEmail()%></td>
-                        <td>
-                            <a href="cliente/edicao?id=<%= cliente.getId()%>">Editar</a>
-                            <a href="cliente/remocao?id=<%= cliente.getId()%>">Deletar</a>
-                        </td>
-                    </tr>
-                <%}%>
+            <% for (Clientes cliente : clientes) { %>
+                <tr>
+                    <td><%= cliente.getCpf()%></td>
+                    <td><%= cliente.getNome()%></td>
+                    <td><%= cliente.getSexo()%></td>
+                    <td><%= cliente.getNascimento()%></td>
+                    <td><%= cliente.getTelefone()%></td>
+                    <td><%= cliente.getEmail()%></td>
+                    <td>
+                        <a href="Ctlcliente/edicao?id=<%= cliente.getId()%>">Editar</a>
+                        <a href="Ctlcliente/remocao?id=<%= cliente.getId()%>">Deletar</a>
+                    </td>
+                </tr>
+            <%}%>
             </tbody>
         </table>
 

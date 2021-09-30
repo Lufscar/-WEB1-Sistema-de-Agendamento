@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.sql.Date;
 
-@WebServlet(urlPatterns = "/cliente/*")
+@WebServlet(urlPatterns = "/Ctlcliente/*")
 public class ClientesController extends HttpServlet {
 
     private static final long serialVersionUID = 1L; 
@@ -73,12 +73,12 @@ public class ClientesController extends HttpServlet {
     private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         List<Clientes> listaClientes = dao.getAll();
         request.setAttribute("listaClientes", listaClientes);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/cliente/lista.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/clientes/lista.jsp");
         dispatcher.forward(request, response);
     }
     
     private void apresentaFormCadastro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/cliente/formulario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/clientes/formulario.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -86,7 +86,7 @@ public class ClientesController extends HttpServlet {
         Long id = Long.parseLong(request.getParameter("id"));
         Clientes cliente = dao.get(id);
         request.setAttribute("cliente", cliente);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("/cliente/formulario.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/clientes/formulario.jsp");
         dispatcher.forward(request, response);
     }
 
@@ -133,7 +133,7 @@ public class ClientesController extends HttpServlet {
 
         Clientes cliente = new Clientes(id, cpf, email, senha, nome, telefone, sexo, nascimento);
         dao.update(cliente);
-        response.sendRedirect("cliente");
+        response.sendRedirect("Ctlcliente");
     }
 
     private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -141,6 +141,6 @@ public class ClientesController extends HttpServlet {
 
         Clientes cliente = new Clientes(id);
         dao.delete(cliente);
-        response.sendRedirect("cliente");
+        response.sendRedirect("Ctlcliente");
     }
 }
