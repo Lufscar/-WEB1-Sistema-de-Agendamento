@@ -7,7 +7,7 @@
 <%  
     Profissionais profissional = (Profissionais) request.getSession().getAttribute("profissional");
     if(profissional == null){
-        response.sendRedirect("login");
+        response.sendRedirect("login.jsp");
         return;
     }
     ConsultasDAO consultaDAO = new ConsultasDAO();
@@ -25,7 +25,7 @@
     </head>
     <body>
         <h1>Olá, <%= profissional.getNome() %></h1>
-        <a href="login">Log out</a>
+        <a href="login.jsp">Log out</a>
         
         <h3>Seus Agendamentos</h3>
         <table border="1">

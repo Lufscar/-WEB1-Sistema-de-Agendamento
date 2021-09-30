@@ -3,23 +3,6 @@
 <%@page import="br.ufscar.dc.dsw.domain.Profissionais"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <table border="1">
-	<caption>
-		<%
-		
-		if (profissional != null) {%>
-			
-				<form action="atualizacao" method="post">
-					<%@include file="campos.jsp"%>
-				</form>
-			<%} else { %>
-				<form action="insercao" method="post">
-					<%@include file="campos.jsp"%>
-				</form>
-			<%} %>
-	</caption>
-	<%if (profissional != null) {%>
-		<input type="hidden" name="id" value="${profissional.id}" />
-	<%}%>
 
 	<tr>
 		<td><label for="cpf">CPF</label></td>

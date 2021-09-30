@@ -15,8 +15,8 @@
 	<div align="center">
 		<h1>Gerenciamento de Clientes</h1>
 		<h2>
-			<a href="/<%=contextPath%>">Menu Principal</a> &nbsp;&nbsp;&nbsp; <a
-				href="/<%=contextPath%>/Ctlcliente/cadastro">Adicione Novo Cliente</a>
+			<a href="index.jsp">Menu Principal</a> &nbsp;&nbsp;&nbsp; <a
+				href="/Ctlcliente/cadastro">Adicione Novo Cliente</a>
 		</h2>
 	</div>
 

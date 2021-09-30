@@ -17,16 +17,15 @@
 	<div align="center">
 		<%
 		Profissionais profissional = (Profissionais) request.getSession().getAttribute("profissional");
-		if (profissional != null) {%>
-			
+		if (profissional != null) {%>			
 				<form action="atualizacao" method="post">
 					<%@include file="campos.jsp"%>
 				</form>
-			<%} else { %>
+		<%} else { %>
 				<form action="insercao" method="post">
 					<%@include file="campos.jsp"%>
 				</form>
-			<%} %>
+		<%} %>
 	</div>
 	
 </body>

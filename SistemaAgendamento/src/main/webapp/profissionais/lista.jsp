@@ -14,8 +14,8 @@
 	<div align="center">
 		<h1>Gerenciamento de Profissionais</h1>
 		<h2>
-			<a href="/<%=contextPath%>">Menu Principal</a> &nbsp;&nbsp;&nbsp; <a
-				href="/<%=contextPath%>/Ctlprofissional/cadastro">Adicione Novo Profissional</a>
+			<a href="index.jsp">Menu Principal</a> &nbsp;&nbsp;&nbsp; 
+			<a href="/Ctlprofissional/cadastro">Adicione Novo Profissional</a>
 		</h2>
 	</div>
 
