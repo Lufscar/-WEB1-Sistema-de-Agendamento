@@ -54,7 +54,7 @@
                         <td><%= profissional.getEmail()%></td>
                         <td>
                             <a href="edicaoProfissional.jsp?id=<%= profissional.getId() %>">Editar</a>
-                            <a href="remocaoProfissional.jsp?id=<%= profissional.getId() %>">Excluir</a>
+                            <a href="Ctlprofissional/remocao?id=<%= profissional.getId() %>" onclick="return confirm('Tem certeza de que deseja excluir este item?');">Excluir</a>
                         </td>
                     </tr>
                 <%}%>
@@ -86,7 +86,7 @@
                     <td><%= cliente.getEmail()%></td>
                     <td>
                         <a href="edicaoCliente.jsp?id=<%= cliente.getId() %>">Editar</a>
-                        <a href="remocaoCliente.jsp?id=<%= cliente.getId()%>">Deletar</a>
+                        <a href="Ctlcliente/remocao?id=<%= cliente.getId()%>" onclick="return confirm('Tem certeza de que deseja excluir este item?');">Deletar</a>
                     </td>
                 </tr>
             <%}%>

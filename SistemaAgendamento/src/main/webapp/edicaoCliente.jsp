@@ -3,10 +3,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
 <%
-    if(request.getSession().getAttribute("admin") == null){
-        response.sendRedirect("login.jsp");
-        return;
-    }
     ClientesDAO clienteDAO = new ClientesDAO();
     Clientes cliente = clienteDAO.get(Long.parseLong(request.getParameter("id")));
 %>
@@ -20,7 +16,7 @@
     </head>
     <body>
         <h1><fmt:message key="edit_patient_title"/></h1>
-        <form action="paciente/update" method="POST">
+        <form action="Ctlcliente/atualizacao" method="POST">
             <table border="1">
 
 	<tr>

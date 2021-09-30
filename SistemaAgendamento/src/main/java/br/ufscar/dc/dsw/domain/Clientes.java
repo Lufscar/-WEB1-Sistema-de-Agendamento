@@ -25,6 +25,8 @@ public class Clientes{
 		this.nascimento = nascimento;
     }
 	
+    public Clientes() {}
+    
     public Clientes(Long id) {
     	this.id = id;
     }

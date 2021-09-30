@@ -114,7 +114,8 @@ public class ClientesController extends HttpServlet {
         
         Clientes cliente = new Clientes(id, cpf, email, senha, nome, telefone, sexo, nascimento);
         dao.insert(cliente);
-        response.sendRedirect("lista");
+        request.getSession().setAttribute("tipo", "admin");
+        response.sendRedirect("/SistemaAgendamento/Admin.jsp");
     }
 
     private void atualize(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
@@ -134,7 +135,8 @@ public class ClientesController extends HttpServlet {
 
         Clientes cliente = new Clientes(id, cpf, email, senha, nome, telefone, sexo, nascimento);
         dao.update(cliente);
-        response.sendRedirect("Ctlcliente");
+        request.getSession().setAttribute("tipo", "admin");
+        response.sendRedirect("/SistemaAgendamento/Admin.jsp");
     }
 
     private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -142,6 +144,7 @@ public class ClientesController extends HttpServlet {
 
         Clientes cliente = new Clientes(id);
         dao.delete(cliente);
-        response.sendRedirect("Ctlcliente");
+        request.getSession().setAttribute("tipo", "admin");
+        response.sendRedirect("/SistemaAgendamento/Admin.jsp");
     }
 }

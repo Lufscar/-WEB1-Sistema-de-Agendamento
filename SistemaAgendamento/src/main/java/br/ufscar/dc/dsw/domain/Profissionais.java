@@ -25,6 +25,9 @@ public class Profissionais {
     	this.id = id;
     }
 	
+    public Profissionais() {
+    }
+    
 	public Long getId() {
         return id;
     }

@@ -99,7 +99,8 @@ public class ProfissionaisController extends HttpServlet {
         
         Profissionais profissional = new Profissionais(id, cpf, email, senha, nome, area, especialidade);
         dao.insert(profissional);
-        response.sendRedirect("lista");
+        request.getSession().setAttribute("tipo", "admin");
+        response.sendRedirect("/SistemaAgendamento/Admin.jsp");
     }
 
     private void atualize(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
@@ -115,7 +116,8 @@ public class ProfissionaisController extends HttpServlet {
         
         Profissionais profissional = new Profissionais(id, cpf, email, senha, nome, area, especialidade);
         dao.update(profissional);
-        response.sendRedirect("Ctlprofissional");
+        request.getSession().setAttribute("tipo", "admin");
+        response.sendRedirect("/SistemaAgendamento/Admin.jsp");
     }
 
     private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -123,6 +125,7 @@ public class ProfissionaisController extends HttpServlet {
 
         Profissionais profissional = new Profissionais(id);
         dao.delete(profissional);
-        response.sendRedirect("Ctlprofissional");
+        request.getSession().setAttribute("tipo", "admin");
+        response.sendRedirect("/SistemaAgendamento/Admin.jsp");
     }
 }
