@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -71,7 +72,7 @@ public class ClientesController extends HttpServlet {
     }
 
     private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Clientes> listaClientes = dao.getAll();
+        ArrayList<Clientes> listaClientes = dao.getAll();
         request.setAttribute("listaClientes", listaClientes);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/clientes/lista.jsp");
         dispatcher.forward(request, response);

@@ -4,6 +4,7 @@ import br.ufscar.dc.dsw.dao.ProfissionaisDAO;
 import br.ufscar.dc.dsw.domain.Profissionais;
 import java.io.IOException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -64,7 +65,7 @@ public class ProfissionaisController extends HttpServlet {
     }
 
     private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        List<Profissionais> listaProfissionais = dao.getAll();
+        ArrayList<Profissionais> listaProfissionais = dao.getAll();
         request.setAttribute("listaProfissionais", listaProfissionais);
         RequestDispatcher dispatcher = request.getRequestDispatcher("profissionais/lista.jsp");
         dispatcher.forward(request, response);
