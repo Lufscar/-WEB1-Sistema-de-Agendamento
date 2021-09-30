@@ -47,10 +47,11 @@ public class AcessaBD {
 			while (rs.next()) {
 				System.out.print(rs.getLong("id"));
 				System.out.print(", " + rs.getLong("id_C"));
-				System.out.print(", " + rs.getString("CPF_C"));
 				System.out.print(", " + rs.getLong("id_P"));
-				System.out.print(", " + rs.getString("CPF_P"));
-				System.out.print(", " + rs.getString("Agendamento"));
+				System.out.print(", " + rs.getInt("ano"));
+				System.out.print("/" + rs.getInt("mes"));
+				System.out.print("/" + rs.getInt("dia"));
+				System.out.print(" " + rs.getInt("hora") + ":00");
 				System.out.print("\n\n");
 			}
 			

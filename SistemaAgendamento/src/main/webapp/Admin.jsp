@@ -53,8 +53,8 @@
                         <td><%= profissional.getEspecialidade()%></td>
                         <td><%= profissional.getEmail()%></td>
                         <td>
-                            <a href="Ctlprofissional/edicao?id=<%= profissional.getId() %>">Editar</a>
-                            <a href="Ctlprofissional/delete?id=<%= profissional.getId() %>">Excluir</a>
+                            <a href="edicaoProfissional.jsp?id=<%= profissional.getId() %>">Editar</a>
+                            <a href="remocaoProfissional.jsp?id=<%= profissional.getId() %>">Excluir</a>
                         </td>
                     </tr>
                 <%}%>
@@ -85,8 +85,8 @@
                     <td><%= cliente.getTelefone()%></td>
                     <td><%= cliente.getEmail()%></td>
                     <td>
-                        <a href="Ctlcliente/edicao?id=<%= cliente.getId()%>">Editar</a>
-                        <a href="Ctlcliente/remocao?id=<%= cliente.getId()%>">Deletar</a>
+                        <a href="edicaoCliente.jsp?id=<%= cliente.getId() %>">Editar</a>
+                        <a href="remocaoCliente.jsp?id=<%= cliente.getId()%>">Deletar</a>
                     </td>
                 </tr>
             <%}%>

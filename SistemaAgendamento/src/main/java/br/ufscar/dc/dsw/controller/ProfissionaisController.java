@@ -67,7 +67,7 @@ public class ProfissionaisController extends HttpServlet {
     private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         ArrayList<Profissionais> listaProfissionais = dao.getAll();
         request.setAttribute("listaProfissionais", listaProfissionais);
-        RequestDispatcher dispatcher = request.getRequestDispatcher("profissionais/lista.jsp");
+        RequestDispatcher dispatcher = request.getRequestDispatcher("/profissionais/lista.jsp");
         dispatcher.forward(request, response);
     }
     

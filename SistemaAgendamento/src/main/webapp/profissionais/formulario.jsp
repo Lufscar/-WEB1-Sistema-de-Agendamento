@@ -2,6 +2,7 @@
 <%@page import="br.ufscar.dc.dsw.dao.ProfissionaisDAO"%>
 <%@page import="br.ufscar.dc.dsw.domain.Profissionais"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import="java.util.ArrayList"%>
 <html>
 <head>
 <title>Profissionais</title>

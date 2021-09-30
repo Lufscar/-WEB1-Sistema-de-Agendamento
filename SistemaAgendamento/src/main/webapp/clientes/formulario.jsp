@@ -2,7 +2,6 @@
 <%@page import="br.ufscar.dc.dsw.dao.ClientesDAO"%>
 <%@page import="br.ufscar.dc.dsw.domain.Clientes"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <%@page import="java.util.ArrayList"%>
 <html>
 <head>
@@ -20,7 +19,6 @@
 		<%
 		Clientes cliente = (Clientes) request.getSession().getAttribute("cliente");
 		if (cliente != null) {%>
-			
 				<form action="atualizacao" method="post">
 					<%@include file="campos.jsp"%>
 				</form>

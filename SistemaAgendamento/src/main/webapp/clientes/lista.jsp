@@ -3,7 +3,6 @@
 <%@page import="br.ufscar.dc.dsw.domain.Clientes"%>
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <html>
 <head>
 <title>Clientes</title>
@@ -15,8 +14,8 @@
 	<div align="center">
 		<h1>Gerenciamento de Clientes</h1>
 		<h2>
-			<a href="index.jsp">Menu Principal</a> &nbsp;&nbsp;&nbsp; <a
-				href="/Ctlcliente/cadastro">Adicione Novo Cliente</a>
+			<a href="index.jsp">Menu Principal</a> &nbsp;&nbsp;&nbsp; 
+			<a	href="/Ctlcliente/cadastro">Adicione Novo Cliente</a>
 		</h2>
 	</div>
 
