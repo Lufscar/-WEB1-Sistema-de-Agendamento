@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="br.ufscar.dc.dsw.dao.ClientesDAO"%>
+<%@page import="br.ufscar.dc.dsw.domain.Clientes"%>
+<%@page import="java.util.List"%>
 <html>
 <head>
 <title>Clientes</title>
@@ -30,10 +30,13 @@
 				<th>Telefone</th>
 				<th>Sexo</th>
 				<th>Data de Nascimento</th>
-				<th>AÃ§Ãµes</th>
+				<th>Ações</th>
 				
 			</tr>
-			<c:forEach var="cliente" items="${requestScope.listaClientes}">
+			
+			<%
+			List(Clientes) clientes = (List) request.getSession().getAttribute("listaClientes");
+			for (Clientes cliente: cliente) {%>
 				<tr>
 					<td>${cliente.id}</td>
 					<td>${cliente.cpf}</td>
@@ -43,13 +46,14 @@
 					<td>${cliente.telefone}</td>
 					<td>${cliente.sexo}</td>
 					<td>${cliente.nascimento}</td>
-					<td><a href="/<%= contextPath%>/clientes/edicao?id=${cliente.id}">EdiÃ§Ã£o</a>
+					<td><a href="/<%= contextPath%>/clientes/edicao?id=${cliente.id}">Edição</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
 						href="/<%= contextPath%>/clientes/remocao?id=${cliente.id}"
 						onclick="return confirm('Tem certeza de que deseja excluir este cliente?');">
-							RemoÃ§Ã£o </a></td>
+							Remoção </a></td>
 				</tr>
-			</c:forEach>
+			<%} %>
+			
 		</table>
 	</div>
 </body>

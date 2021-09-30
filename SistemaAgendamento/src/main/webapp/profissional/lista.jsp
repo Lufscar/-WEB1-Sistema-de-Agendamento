@@ -1,7 +1,7 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<%@ page isELIgnored="false"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+<%@page import="br.ufscar.dc.dsw.dao.ProfissionaisDAO"%>
+<%@page import="br.ufscar.dc.dsw.domain.Profissionais"%>
+<%@page import="java.util.List"%>
 <html>
 <head>
 <title>Profissionais</title>
@@ -30,10 +30,13 @@
 				<th>Area</th>
 				<th>Sexo</th>
 				<th>Especialidade</th>
-				<th>AÃ§Ãµes</th>
+				<th>Ações</th>
 				
 			</tr>
-			<c:forEach var="profissional" items="${requestScope.listaProfissionais}">
+			
+			<%
+			List(Profissionais) profissionaiss = (List) request.getSession().getAttribute("listaProfissionais");
+			for (Clientes cliente: cliente) {%>
 				<tr>
 					<td>${profissional.id}</td>
 					<td>${profissional.cpf}</td>
@@ -43,13 +46,14 @@
 					<td>${profissional.telefone}</td>
 					<td>${profissional.sexo}</td>
 					<td>${profissional.nascimento}</td>
-					<td><a href="/<%= contextPath%>/profissionais/edicao?id=${profissional.id}">EdiÃ§Ã£o</a>
+					<td><a href="/<%= contextPath%>/profissionais/edicao?id=${profissional.id}">Edição</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a
 						href="/<%= contextPath%>/profissionais/remocao?id=${profissional.id}"
 						onclick="return confirm('Tem certeza de que deseja excluir este profissional?');">
-							RemoÃ§Ã£o </a></td>
+							Remoção </a></td>
 				</tr>
-			</c:forEach>
+			<%} %>
+			
 		</table>
 	</div>
 </body>

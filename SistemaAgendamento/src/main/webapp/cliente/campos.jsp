@@ -7,10 +7,9 @@
 		<%
 		Clientes cliente = (Clientes) request.getSession().getAttribute("cliente");
 		if (cliente != null) {%>
-			
-				<form action="atualizacao" method="post">
-					<%@include file="campos.jsp"%>
-				</form>
+			<form action="atualizacao" method="post">
+				<%@include file="campos.jsp"%>
+			</form>
 			<%} else { %>
 				<form action="insercao" method="post">
 					<%@include file="campos.jsp"%>
