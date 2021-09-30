@@ -36,7 +36,7 @@
 			</tr>
 			
 			<%
-			List(Profissionais) profissionais = (List) request.getSession().getAttribute("listaProfissionais");
+			List<Profissionais> profissionais = (List) request.getSession().getAttribute("listaProfissionais");
 			for (Profissionais profissional: profissionais) {%>
 				<tr>
 					<td>${profissional.id}</td>

@@ -37,8 +37,8 @@
 			</tr>
 			
 			<%
-			List(Clientes) clientes = (List) request.getSession().getAttribute("listaClientes");
-			for (Clientes cliente: cliente) {%>
+			List<Clientes> clientes = (List) request.getSession().getAttribute("listaClientes");
+			for (Clientes cliente: clientes) {%>
 				<tr>
 					<td>${cliente.id}</td>
 					<td>${cliente.cpf}</td>
