@@ -13,7 +13,7 @@ create table SistemaAgendamento.CLIENTES(
 	telefone varchar(13),
 	sexo char(2),
 	nascimento date,
-	primary key (id, cpf)
+	primary key (id)
 	);
 
 create table SistemaAgendamento.PROFISSIONAIS(
@@ -24,7 +24,7 @@ create table SistemaAgendamento.PROFISSIONAIS(
 	nome varchar(128) not null,
 	area varchar(128) not null,
 	especialidade varchar(128) not null,
-	primary key (id, cpf)
+	primary key (id)
     );
 
 create table SistemaAgendamento.CONSULTAS(
