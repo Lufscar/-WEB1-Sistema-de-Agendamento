@@ -65,10 +65,14 @@ public class ProfissionaisController extends HttpServlet {
     }
 
     private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        /*
         ArrayList<Profissionais> listaProfissionais = dao.getAll();
         request.setAttribute("listaProfissionais", listaProfissionais);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/profissionais/lista.jsp");
         dispatcher.forward(request, response);
+        */
+        request.getSession().setAttribute("tipo", "admin");
+        response.sendRedirect("/SistemaAgendamento/Admin.jsp");
     }
     
     private void apresentaFormCadastro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {

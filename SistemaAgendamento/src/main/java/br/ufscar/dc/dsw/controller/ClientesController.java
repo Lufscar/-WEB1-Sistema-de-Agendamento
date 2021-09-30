@@ -72,10 +72,14 @@ public class ClientesController extends HttpServlet {
     }
 
     private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ArrayList<Clientes> listaClientes = dao.getAll();
+        /*
+    	ArrayList<Clientes> listaClientes = dao.getAll();
         request.setAttribute("listaClientes", listaClientes);
         RequestDispatcher dispatcher = request.getRequestDispatcher("/clientes/lista.jsp");
         dispatcher.forward(request, response);
+        */
+    	request.getSession().setAttribute("tipo", "admin");
+        response.sendRedirect("/SistemaAgendamento/Admin.jsp");
     }
     
     private void apresentaFormCadastro(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
