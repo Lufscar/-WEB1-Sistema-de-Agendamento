@@ -72,7 +72,7 @@ public class ProfissionaisDAO extends GenericDAO {
     }
 
     public void delete(Profissionais profissional) {
-        String sql = "DELETE FROM Profissionais where cpf = ?";
+        String sql = "DELETE FROM PROFISSIONAIS where cpf = ?";
 
         try {
             Connection conn = this.getConnection();
@@ -89,7 +89,7 @@ public class ProfissionaisDAO extends GenericDAO {
     }
 
     public void update(Profissionais profissional) {
-        String sql = "UPDATE Profissionais SET profissional = ?, autor = ?, senha = ?, nome = ?, area = ?, especialidade = ?";
+        String sql = "UPDATE PROFISSIONAIS SET profissional = ?, autor = ?, senha = ?, nome = ?, area = ?, especialidade = ?";
         sql += ", WHERE cpf = ?";
 
         try {
@@ -115,7 +115,7 @@ public class ProfissionaisDAO extends GenericDAO {
     public Profissionais get(Long id) {
     	Profissionais profissional = null;
 
-    	String sql = "SELECT * from Profissionais order by area ASC, order by especialidade DESC";
+    	String sql = "SELECT * from PROFISSIONAIS order by area ASC, order by especialidade DESC, ORDER BY nome";
 
         try {
             Connection conn = this.getConnection();
@@ -146,7 +146,7 @@ public class ProfissionaisDAO extends GenericDAO {
     
     public Profissionais getbyLogin(String emailx) {
         Profissionais profissional = null;
-        String sql = "SELECT * from Profissionais WHERE email = ?";
+        String sql = "SELECT * from PROFISSIONAIS WHERE email = ?";
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
@@ -175,7 +175,7 @@ public class ProfissionaisDAO extends GenericDAO {
 
         ArrayList<Profissionais> listaProfissionais = new ArrayList<>();
 
-        String sql = "SELECT * from Profissionais WHERE area = ? order by nome ASC";
+        String sql = "SELECT * from PROFISSIONAIS WHERE area = ? order by nome ASC";
 
         try {
             Connection conn = this.getConnection();

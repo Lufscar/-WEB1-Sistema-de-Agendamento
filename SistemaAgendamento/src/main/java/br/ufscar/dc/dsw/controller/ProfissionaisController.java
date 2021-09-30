@@ -47,7 +47,12 @@ public class ProfissionaisController extends HttpServlet {
                     insere(request, response);
                     break;
                 case "/remocao":
-                    remove(request, response);
+                	Long id = Long.parseLong(request.getParameter("id"));
+                    System.out.println("removeuu");
+                    Profissionais profissional = new Profissionais(id);
+                    dao.delete(profissional);
+                    request.getSession().setAttribute("tipo", "admin");
+                    response.sendRedirect("/SistemaAgendamento/Admin.jsp");
                     break;
                 case "/edicao":
                     apresentaFormEdicao(request, response);
@@ -124,12 +129,4 @@ public class ProfissionaisController extends HttpServlet {
         response.sendRedirect("/SistemaAgendamento/Admin.jsp");
     }
 
-    private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Long id = Long.parseLong(request.getParameter("id"));
-
-        Profissionais profissional = new Profissionais(id);
-        dao.delete(profissional);
-        request.getSession().setAttribute("tipo", "admin");
-        response.sendRedirect("/SistemaAgendamento/Admin.jsp");
-    }
 }

@@ -54,7 +54,11 @@ public class ClientesController extends HttpServlet {
                     insere(request, response);
                     break;
                 case "/remocao":
-                    remove(request, response);
+                	Long id = Long.parseLong(request.getParameter("id"));
+                    Clientes cliente = new Clientes(id);
+                    dao.delete(cliente);
+                    request.getSession().setAttribute("tipo", "admin");
+                    response.sendRedirect("/SistemaAgendamento/Admin.jsp");
                     break;
                 case "/edicao":
                     apresentaFormEdicao(request, response);
@@ -143,12 +147,4 @@ public class ClientesController extends HttpServlet {
         response.sendRedirect("/SistemaAgendamento/Admin.jsp");
     }
 
-    private void remove(HttpServletRequest request, HttpServletResponse response) throws IOException {
-        Long id = Long.parseLong(request.getParameter("id"));
-
-        Clientes cliente = new Clientes(id);
-        dao.delete(cliente);
-        request.getSession().setAttribute("tipo", "admin");
-        response.sendRedirect("/SistemaAgendamento/Admin.jsp");
-    }
 }
