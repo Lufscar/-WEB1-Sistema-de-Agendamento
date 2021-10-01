@@ -73,7 +73,7 @@ ArrayList<Clientes> clientes = daoclientes.getAll();
 							<td><%=profissional.getEspecialidade()%></td>
 							<td><%=profissional.getEmail()%></td>
 							<td><a class="botao"
-								href="edicaoProfissional.jsp?id=<%=profissional.getId()%>">Editar</a>
+								href="edicaoProfissional.jsp?id=<%=profissional.getId()%>">Editar</a> 
 								<a class="botao"
 								href="Ctlprofissional/remocao?id=<%=profissional.getId()%>"
 								onclick="return confirm('Tem certeza de que deseja excluir este item?');">Excluir</a>

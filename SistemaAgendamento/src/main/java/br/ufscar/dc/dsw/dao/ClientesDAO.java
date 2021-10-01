@@ -87,7 +87,7 @@ public class ClientesDAO extends GenericDAO {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
 
-            statement.setString(1, Clientes.getCpf());
+            statement.setString(1, cliente.getCpf());
             statement.executeUpdate();
 
             statement.close();
@@ -103,7 +103,7 @@ public class ClientesDAO extends GenericDAO {
 
         try {
             Connection conn = this.getConnection();
-            PreparedStatement statement = conn.prepareStatement(sql);
+            PreparedStatement statement;
 
             statement = conn.prepareStatement(sql);
             statement.setLong(1, cliente.getId());

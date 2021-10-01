@@ -77,7 +77,7 @@ public class ProfissionaisDAO extends GenericDAO {
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
-            statement.setLong(1, profissional.getId());
+            
             statement.setString(1, profissional.getCpf());
             statement.executeUpdate();
 
@@ -94,8 +94,9 @@ public class ProfissionaisDAO extends GenericDAO {
 
         try {
             Connection conn = this.getConnection();
-            PreparedStatement statement = conn.prepareStatement(sql);
-
+            PreparedStatement statement;
+            
+            statement = conn.prepareStatement(sql);
             statement.setLong(1, profissional.getId());
             statement.setString(2, profissional.getArea());
             statement.setString(3, profissional.getEmail());
@@ -115,12 +116,41 @@ public class ProfissionaisDAO extends GenericDAO {
     public Profissionais get(Long id) {
     	Profissionais profissional = null;
 
-    	String sql = "SELECT * from PROFISSIONAIS order by area ASC, order by especialidade DESC, ORDER BY nome";
+    	String sql = "SELECT * from PROFISSIONAIS where id = ?";
 
         try {
             Connection conn = this.getConnection();
             PreparedStatement statement = conn.prepareStatement(sql);
+            statement.setLong(1, id);
+            ResultSet resultSet = statement.executeQuery();
+            if (resultSet.next()) {              
+            	String cpf = resultSet.getString("cpf");
+            	String email = resultSet.getString("email");
+                String senha = resultSet.getString("senha");
+                String nome = resultSet.getString("nome");
+                String area = resultSet.getString("area");
+                String especialidade = resultSet.getString("especialidade");
+ 
+                profissional = new Profissionais(id, email, senha, cpf, nome, area, especialidade);
+            }
 
+            resultSet.close();
+            statement.close();
+            conn.close();
+        } catch (SQLException e) {
+            throw new RuntimeException(e);
+        }
+        return profissional;
+    }
+    
+    public Profissionais getbyID(Long id) {
+    	Profissionais profissional = null;
+
+    	String sql = "SELECT * from PROFISSIONAIS where id = ?";
+
+        try {
+            Connection conn = this.getConnection();
+            PreparedStatement statement = conn.prepareStatement(sql);
             statement.setLong(1, id);
             ResultSet resultSet = statement.executeQuery();
             if (resultSet.next()) {              

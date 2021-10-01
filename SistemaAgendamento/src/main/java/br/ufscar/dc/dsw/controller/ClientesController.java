@@ -1,20 +1,15 @@
 package br.ufscar.dc.dsw.controller;
 
-
 import br.ufscar.dc.dsw.dao.*;
 import br.ufscar.dc.dsw.domain.*;
-
 import java.io.IOException;
-import java.sql.Date;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 @WebServlet(urlPatterns = "/Ctlcliente/*")
 public class ClientesController extends HttpServlet {
