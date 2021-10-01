@@ -41,6 +41,6 @@
                 </tr>
             </table>
         </form>
-        <a href="Index.jsp">Voltar para a tela inicial</a>
+        <a href="index.jsp">Voltar para a tela inicial</a>
     </body>
 </html>
