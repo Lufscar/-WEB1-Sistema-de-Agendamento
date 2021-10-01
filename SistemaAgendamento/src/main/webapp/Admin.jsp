@@ -51,7 +51,6 @@ ArrayList<Clientes> clientes = daoclientes.getAll();
 			<h2>Confira nosso CRUD de Profissionais</h2>
 
 			<div style="overflow-x: auto;">
-				<a class="botao" href="Ctlcliente/cadastro">Adicionar Novo</a>
 				<table border="1">
 					<thead>
 						<tr>
@@ -86,31 +85,26 @@ ArrayList<Clientes> clientes = daoclientes.getAll();
 					</tbody>
 				</table>
 
+				<div style="overflow-x: auto;">
 				<table border="1">
-
+					<thead><th>NOVO CLIENTE:</th></thead>
 					<tbody>
 						<tr>
 							<form action="cliente/criar" method="post">
-								<th>NOVO CLIENTE:</th><tr>
-								<td>CPF: <input type="text" id="cpf" name="cpf" size="11"
-									required value="" />
-								</td>
-								<td>E-MAIL: <input type="text" id="email" name="email"
-									size="128" required value="" /></td>
-								<td>SENHA: <input type="password" id="senha" name="senha"
-									size="64" required value="" /></td>
-								<td>NOME: <input type="text" id="nome" name="nome"
-									size="128" required value="" /></td>
-								<td>TELEFONE: <input type="number" id="telefone"
-									name="telefone" size="13" required value="" /></td>
-								<td>SEXO: <input type="text" id="sexo" name="sexo" required
-									size="2" value="" /></td>
-								<% /* <td>NASCIMENTO:<input type="date" id="nascimento"
-									name="nascimento" required value="" /></td>
-								 */%>
-								 <td><input class="botao" type="submit" value="Cadastrar" /></td>
-								</form>
-								</tr>
+								
+							<td>CPF: <input type="text" id="cpf" name="cpf" required value="" /></td>
+							<td>E-MAIL: <input type="text" id="email" name="email" required value="" /></td>
+							<td>SENHA: <input type="password" id="senha" name="senha" required value="" /></td>
+							<td>NOME: <input type="text" id="nome" name="nome" required value="" /></td>
+							<td>TELEFONE: <input type="number" id="telefone" name="telefone" required value="" /></td>
+							<td>SEXO: <input type="text" id="sexo" name="sexo" required size="2" value="" /></td>
+							<td>Dia: <input name="dia" value="" type="number" min="1" max="31" /> </td>
+							<td>Mes: <input name="mes" value="" type="number" min="1" max="12" /> </td>
+							<td>Ano: <input name="ano" value="" type="number" min="1900" /> </td>
+							<td><input class="botao" type="submit" value="Cadastrar" /></td>
+							
+							</form>
+						</tr>
 					</tbody>
 				</table>
 			</div>

@@ -103,18 +103,11 @@ public class ClientesController extends HttpServlet {
         String nome = request.getParameter("nome");
         String telefone = request.getParameter("telefone");
         String sexo = request.getParameter("sexo");
-        /*
-         String startDateStr = request.getParameter("startDate");
-	SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-	//surround below line with try catch block as below code throws checked exception
-	Date startDate = sdf.parse(startDateStr);
-         * */
-        
-        String nascimentoStr = request.getParameter("nascimento");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date nascimento = (Date) sdf.parse(nascimentoStr);
-        
-        Clientes cliente = new Clientes(id, cpf, email, senha, nome, telefone, sexo, nascimento);
+        Integer ano = Integer.parseInt(request.getParameter("ano"));
+        Integer mes = Integer.parseInt(request.getParameter("mes"));
+        Integer dia = Integer.parseInt(request.getParameter("dia"));
+              		
+        Clientes cliente = new Clientes(id, cpf, email, senha, nome, telefone, sexo, ano, mes, dia);
         dao.insert(cliente);
         request.getSession().setAttribute("tipo", "admin");
         response.sendRedirect("/SistemaAgendamento/Admin.jsp");
@@ -131,11 +124,11 @@ public class ClientesController extends HttpServlet {
         String telefone = request.getParameter("telefone");
         String sexo = request.getParameter("sexo");
         
-        String nascimentoStr = request.getParameter("nascimento");
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date nascimento = (Date) sdf.parse(nascimentoStr);
-
-        Clientes cliente = new Clientes(id, cpf, email, senha, nome, telefone, sexo, nascimento);
+        Integer ano = Integer.parseInt(request.getParameter("ano"));
+        Integer mes = Integer.parseInt(request.getParameter("mes"));
+        Integer dia = Integer.parseInt(request.getParameter("dia"));
+              		
+        Clientes cliente = new Clientes(id, cpf, email, senha, nome, telefone, sexo, ano, mes, dia);
         dao.update(cliente);
         request.getSession().setAttribute("tipo", "admin");
         response.sendRedirect("/SistemaAgendamento/Admin.jsp");

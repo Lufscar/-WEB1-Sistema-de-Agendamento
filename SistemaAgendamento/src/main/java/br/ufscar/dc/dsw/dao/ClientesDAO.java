@@ -15,7 +15,7 @@ public class ClientesDAO extends GenericDAO {
 
     public void insert(Clientes cliente) {
 
-        String sql = "INSERT INTO CLIENTES (id, cpf, email, senha, nome, telefone, sexo, nascimento) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO CLIENTES (id, cpf, email, senha, nome, telefone, sexo, dia, mes, ano) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
 
         try {
             Connection conn = this.getConnection();
@@ -29,7 +29,9 @@ public class ClientesDAO extends GenericDAO {
             statement.setString(5, cliente.getNome());
             statement.setString(6, cliente.getTelefone());
             statement.setString(7, cliente.getSexo());
-            //statement.setDate(8, (Date) cliente.getNascimento());
+            statement.setInt(8, cliente.getAno());
+            statement.setInt(9, cliente.getMes());
+            statement.setInt(10, cliente.getDia());
             statement.executeUpdate();
 
             statement.close();
@@ -59,8 +61,10 @@ public class ClientesDAO extends GenericDAO {
                 String nome = resultSet.getString("nome");
                 String telefone = resultSet.getString("telefone");
                 String sexo = resultSet.getString("sexo");
-                Date nascimento = resultSet.getDate("nascimento");
-                Clientes cliente = new Clientes(id, cpf, email, senha, nome, telefone, sexo, nascimento);
+                int ano = resultSet.getInt("ano");
+                int mes = resultSet.getInt("mes");
+                int dia = resultSet.getInt("dia");
+                Clientes cliente = new Clientes(id, cpf, email, senha, nome, telefone, sexo, ano, mes, dia);
 
                 listaClientes.add(cliente);
             }
@@ -94,7 +98,7 @@ public class ClientesDAO extends GenericDAO {
     }
 
     public void update(Clientes cliente) {
-        String sql = "UPDATE CLIENTES SET cpf = ?, email = ?, senha = ?, nome = ?, telefone = ?, sexo = ?, nascimento = ? ";
+        String sql = "UPDATE CLIENTES SET cpf = ?, email = ?, senha = ?, nome = ?, telefone = ?, sexo = ?, ano = ?, mes = ?, dia =? ";
         sql += "WHERE cpf = ?";
 
         try {
@@ -109,7 +113,9 @@ public class ClientesDAO extends GenericDAO {
             statement.setString(5, cliente.getNome());
             statement.setString(6, cliente.getTelefone());
             statement.setString(7, cliente.getSexo());
-            statement.setDate(8, (Date) cliente.getNascimento());
+            statement.setInt(8, cliente.getAno());
+            statement.setInt(9, cliente.getMes());
+            statement.setInt(10, cliente.getDia());
             statement.executeUpdate();
 
             statement.close();
@@ -137,9 +143,11 @@ public class ClientesDAO extends GenericDAO {
                 String nome = resultSet.getString("nome");
                 String telefone = resultSet.getString("telefone");
                 String sexo = resultSet.getString("sexo");
-                Date nascimento = resultSet.getDate("nascimento");
-                		
-                cliente = new Clientes(id, cpf_c, email, senha, nome, telefone, sexo, nascimento);
+                int ano = resultSet.getInt("ano");
+                int mes = resultSet.getInt("mes");
+                int dia = resultSet.getInt("dia");
+              		
+                cliente = new Clientes(id, cpf_c, email, senha, nome, telefone, sexo, ano, mes, dia);
             }
 
             resultSet.close();
@@ -152,7 +160,7 @@ public class ClientesDAO extends GenericDAO {
     }
     
     public Clientes getbyID(Long id) {
-        Clientes usuario = null;
+        Clientes cliente = null;
         String sql = "SELECT * from Usuario WHERE id = ?";
         try {
             Connection conn = this.getConnection();
@@ -166,8 +174,11 @@ public class ClientesDAO extends GenericDAO {
                 String nome = resultSet.getString("nome");
                 String telefone = resultSet.getString("telefone");
                 String sexo = resultSet.getString("sexo");
-                Date nascimento = resultSet.getDate("nascimento");
-                usuario = new Clientes(id, cpf_c, email, senha, nome, telefone, sexo, nascimento);
+                int ano = resultSet.getInt("ano");
+                int mes = resultSet.getInt("mes");
+                int dia = resultSet.getInt("dia");
+              		
+                cliente = new Clientes(id, cpf_c, email, senha, nome, telefone, sexo, ano, mes, dia);
             }
             resultSet.close();
             statement.close();
@@ -175,11 +186,11 @@ public class ClientesDAO extends GenericDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return usuario;
+        return cliente;
     }
     
     public Clientes getbyLogin(String login) {
-        Clientes usuario = null;
+        Clientes cliente = null;
         String sql = "SELECT * from CLIENTES WHERE email = ?";
         try {
             Connection conn = this.getConnection();
@@ -193,9 +204,11 @@ public class ClientesDAO extends GenericDAO {
                 String senha = resultSet.getString("senha");
                 String nome = resultSet.getString("nome");
                 String telefone = resultSet.getString("telefone");
-                String sexo = resultSet.getString("sexo");
-                Date nascimento = resultSet.getDate("nascimento");
-                usuario = new Clientes(id, cpf_c, email, senha, nome, telefone, sexo, nascimento);
+                String sexo = resultSet.getString("sexo");int ano = resultSet.getInt("ano");
+                int mes = resultSet.getInt("mes");
+                int dia = resultSet.getInt("dia");
+              		
+                cliente = new Clientes(id, cpf_c, email, senha, nome, telefone, sexo, ano, mes, dia);
             }
             resultSet.close();
             statement.close();
@@ -203,6 +216,6 @@ public class ClientesDAO extends GenericDAO {
         } catch (SQLException e) {
             throw new RuntimeException(e);
         }
-        return usuario;
+        return cliente;
     }
 }

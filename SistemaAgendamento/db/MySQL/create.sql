@@ -12,7 +12,9 @@ create table SistemaAgendamento.CLIENTES(
 	nome varchar(128) not null,
 	telefone varchar(13),
 	sexo char(2),
-	nascimento date,
+	ano int(4),
+	mes int(2),
+	dia int(2), 
 	primary key (id)
 	);
 

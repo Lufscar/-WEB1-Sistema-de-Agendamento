@@ -27,7 +27,9 @@ public class AcessaBD {
 				System.out.print(", " + rs.getString("Nome"));
 				System.out.print(", " + rs.getString("Telefone"));
 				System.out.print(", " + rs.getString("Sexo"));
-				System.out.print(", " + rs.getString("Nascimento"));
+				System.out.print(", " + rs.getInt("ano"));
+				System.out.print("/" + rs.getInt("mes"));
+				System.out.print("/" + rs.getInt("dia"));
 				System.out.print("\n\n");
 			}
 			

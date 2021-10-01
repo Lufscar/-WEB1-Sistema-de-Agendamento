@@ -6,11 +6,13 @@ import java.io.IOException;
 import java.sql.Date;
 import java.text.SimpleDateFormat;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.RequestDispatcher;
 
 @WebServlet(name = "CriaCliente", urlPatterns = { "/cliente/criar" })
 public class CriaClientesController extends HttpServlet {
@@ -21,10 +23,14 @@ public class CriaClientesController extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {
         try {
-        	/*if(request.getSession().getAttribute("admin") == null){
-                response.sendRedirect("../login");
-                return;
-            }*/
+        	String tipo = (String) request.getSession().getAttribute("tipo");
+        	if (!tipo.equals("admin")) {
+        		RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+        		rd.forward(request, response);
+        		return;
+        	}
+        	
+         
 
             ClientesDAO clienteDAO = new ClientesDAO();
             Clientes cliente = new Clientes();
@@ -35,9 +41,10 @@ public class CriaClientesController extends HttpServlet {
             cliente.setNome(request.getParameter("nome"));
             cliente.setTelefone(request.getParameter("telefone"));
             cliente.setSexo(request.getParameter("sexo"));
-            /*String nascimentoStr = (request.getParameter("nascimento"));
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-            cliente.setNascimento((Date) sdf.parse(nascimentoStr));*/
+            Integer ano = Integer.parseInt(request.getParameter("ano"));
+            Integer mes = Integer.parseInt(request.getParameter("mes"));
+            Integer dia = Integer.parseInt(request.getParameter("dia"));
+            cliente.setNascimento( ano,  mes,  dia);
             
             clienteDAO.insert(cliente);
             response.sendRedirect("/SistemaAgendamento/Cliente.jsp");
