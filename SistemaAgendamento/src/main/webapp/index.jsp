@@ -6,7 +6,7 @@
 <%
     ProfissionaisDAO daoprofissionais = new ProfissionaisDAO();
     ArrayList<Profissionais> profissionais = null;
-    String area = request.getParameter("e");
+    String area = request.getParameter("a");
     if(area != null){
         profissionais = daoprofissionais.getbyArea(area);
     }
@@ -30,7 +30,7 @@
         
         <h3>Profissionais
             <% if(area != null){%>  em
-                <%= "area" %>
+                <%= area %>
             <%}%>
         </h3>
         <table border="1">
@@ -55,6 +55,13 @@
                 <%}%>
             </tbody>
         </table>
+        <br>
+        Selecione a area: 
+        <form action="" method="POST">
+        	<input type="text" id="a" name="a" size="20">
+        	<input type="submit" value="Pesquisar" />
+        </form>
+        
     </body>
 </html>
 </fmt:bundle>
