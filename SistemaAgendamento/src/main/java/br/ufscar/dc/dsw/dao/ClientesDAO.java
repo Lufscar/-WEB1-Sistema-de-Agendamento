@@ -29,7 +29,7 @@ public class ClientesDAO extends GenericDAO {
             statement.setString(5, cliente.getNome());
             statement.setString(6, cliente.getTelefone());
             statement.setString(7, cliente.getSexo());
-            statement.setDate(8, (Date) cliente.getNascimento());
+            //statement.setDate(8, (Date) cliente.getNascimento());
             statement.executeUpdate();
 
             statement.close();

@@ -1,8 +1,7 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
-<%@page import="br.ufscar.dc.dsw.dao.ClientesDAO"%>
-<%@page import="br.ufscar.dc.dsw.domain.Clientes"%>
-<%@page import="br.ufscar.dc.dsw.dao.ProfissionaisDAO"%>
-<%@page import="br.ufscar.dc.dsw.domain.Profissionais"%>
+<%@page import="br.ufscar.dc.dsw.dao.*"%>
+<%@page import="br.ufscar.dc.dsw.domain.*"%>
+<%@page import="br.ufscar.dc.dsw.controller.*"%>
 <%@page import="java.util.ArrayList"%>
 <%
 String tipo = (String) request.getSession().getAttribute("tipo");
@@ -52,7 +51,7 @@ ArrayList<Clientes> clientes = daoclientes.getAll();
 			<h2>Confira nosso CRUD de Profissionais</h2>
 
 			<div style="overflow-x: auto;">
-				<a  class="botao" href="Ctlcliente/cadastro">Adicionar Novo</a>
+				<a class="botao" href="Ctlcliente/cadastro">Adicionar Novo</a>
 				<table border="1">
 					<thead>
 						<tr>
@@ -74,9 +73,10 @@ ArrayList<Clientes> clientes = daoclientes.getAll();
 							<td><%=profissional.getArea()%></td>
 							<td><%=profissional.getEspecialidade()%></td>
 							<td><%=profissional.getEmail()%></td>
-							<td><a  class="botao"
+							<td><a class="botao"
 								href="edicaoProfissional.jsp?id=<%=profissional.getId()%>">Editar</a>
-								<a  class="botao" href="Ctlprofissional/remocao?id=<%=profissional.getId()%>"
+								<a class="botao"
+								href="Ctlprofissional/remocao?id=<%=profissional.getId()%>"
 								onclick="return confirm('Tem certeza de que deseja excluir este item?');">Excluir</a>
 							</td>
 						</tr>
@@ -85,14 +85,43 @@ ArrayList<Clientes> clientes = daoclientes.getAll();
 						%>
 					</tbody>
 				</table>
+
+				<table border="1">
+
+					<tbody>
+						<tr>
+							<form action="cliente/criar" method="post">
+								<th>NOVO CLIENTE:</th><tr>
+								<td>CPF: <input type="text" id="cpf" name="cpf" size="11"
+									required value="" />
+								</td>
+								<td>E-MAIL: <input type="text" id="email" name="email"
+									size="128" required value="" /></td>
+								<td>SENHA: <input type="password" id="senha" name="senha"
+									size="64" required value="" /></td>
+								<td>NOME: <input type="text" id="nome" name="nome"
+									size="128" required value="" /></td>
+								<td>TELEFONE: <input type="number" id="telefone"
+									name="telefone" size="13" required value="" /></td>
+								<td>SEXO: <input type="text" id="sexo" name="sexo" required
+									size="2" value="" /></td>
+								<% /* <td>NASCIMENTO:<input type="date" id="nascimento"
+									name="nascimento" required value="" /></td>
+								 */%>
+								 <td><input class="botao" type="submit" value="Cadastrar" /></td>
+								</form>
+								</tr>
+					</tbody>
+				</table>
 			</div>
+		</div>
 		</div>
 		<div class="top_cover"></div>
 		<div class="top_cover">
 			<h2>Confira nosso CRUD de Clientes</h2>
 
 			<div style="overflow-x: auto;">
-				<a  class="botao" href="Ctlcliente/cadastro">Adicionar Novo</a>
+				<a class="botao" href="Ctlcliente/cadastro">Adicionar Novo</a>
 				<table border="1">
 					<thead>
 						<tr>
@@ -116,8 +145,9 @@ ArrayList<Clientes> clientes = daoclientes.getAll();
 							<td><%=cliente.getNascimento()%></td>
 							<td><%=cliente.getTelefone()%></td>
 							<td><%=cliente.getEmail()%></td>
-							<td><a  class="botao" href="edicaoCliente.jsp?id=<%=cliente.getId()%>">Editar</a>
-								<a  class="botao" href="Ctlcliente/remocao?id=<%=cliente.getId()%>"
+							<td><a class="botao"
+								href="edicaoCliente.jsp?id=<%=cliente.getId()%>">Editar</a> <a
+								class="botao" href="Ctlcliente/remocao?id=<%=cliente.getId()%>"
 								onclick="return confirm('Tem certeza de que deseja excluir este item?');">Deletar</a>
 							</td>
 						</tr>

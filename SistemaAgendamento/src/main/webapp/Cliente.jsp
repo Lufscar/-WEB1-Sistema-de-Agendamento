@@ -83,31 +83,45 @@ ArrayList<Profissionais> profissionais = profissionalDAO.getAll();
 				</table>
 			</div>
 
-			<h3>Marcar novo agendamento</h3>
-			<form action="consulta/criar" method="post">
-				<input type="hidden" value="<%=cliente.getId()%>" name="cliente" />
-				<label>Profissionais:</label> <select name="profissional">
-					<%
-					for (Profissionais p : profissionais) {
-					%>
-					<option value="<%=p.getId()%>">
-						<%=p.getNome()%> -
-						<%=p.getArea()%> -
-						<%=p.getEspecialidade()%>
-					</option>
-					<%
-					}
-					%>
-				</select><br> <label>Data:</label><br> <label>Dia:</label> <input
-					name="dia" value="" type="number" min="1" max="31" /> <label>Mes:</label>
-				<input name="mes" value="" type="number" min="1" max="12" /> <label>Ano:</label>
-				<input name="ano" value="" type="number"
-					min="<%=LocalDateTime.now().getYear()%>" /> <label>Hora:</label> <input
-					name="hora" value="" type="number" min="7" max="18" /> <br> <input class="botao" 
-					type="submit" value="submit" />
-			</form>
-		</div>
-		<div class="top_cover"></div>
+			<div style="overflow-x: auto;">
+				<table border="1">
+
+					<tbody>
+						<tr>
+							<form action="consulta/criar" method="post">
+								<input type="hidden" value="<%=cliente.getId()%>" name="cliente" />
+								<th>Nova Consulta: <select name="profissional"
+									value="Profissional">
+										<%
+										for (Profissionais p : profissionais) {
+										%>
+										<option value="<%=p.getId()%>">
+											<%=p.getNome()%> -
+											<%=p.getArea()%> -
+											<%=p.getEspecialidade()%>
+										</option>
+										<%
+										}
+										%>
+								</select></th>
+								<th>Dia: <input name="dia" value="" type="number" min="1"
+									max="31" />
+								</th>
+								<th>Mes: <input name="mes" value="" type="number" min="1"
+									max="12" />
+								</th>
+								<th>Ano: <input name="ano" value="" type="number"
+									min="<%=LocalDateTime.now().getYear()%>" />
+								</th>
+								<th>Hora: <input name="hora" value="" type="number" min="7"
+									max="19" />
+								</th>
+								<th><input class="botao" type="submit" value="Agendar" /></th>
+					</tbody>
+				</table>
+				</form>
+			</div>
+			<div class="top_cover"></div>
 	</section>
 </body>
 	</html>
