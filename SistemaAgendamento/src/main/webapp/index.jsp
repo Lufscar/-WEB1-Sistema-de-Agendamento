@@ -4,7 +4,7 @@
 <%@page import="br.ufscar.dc.dsw.domain.Profissionais"%>
 <%@page import="br.ufscar.dc.dsw.dao.ProfissionaisDAO"%>
 <%
-	ProfissionaisDAO daoprofissionais = new ProfissionaisDAO();
+ProfissionaisDAO daoprofissionais = new ProfissionaisDAO();
 ArrayList<Profissionais> profissionais = null;
 String area = request.getParameter("a");
 if (area != null) {
@@ -23,11 +23,12 @@ if (area != null) {
 <meta http-equiv="content-language" content="lat" />
 <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
 <meta name="description"
-	content="Sistema para agendamento de consultas online comprofissionais" />
-<meta name="keywords" content="Lorem, ipsum, dolor, sit">
+	content="Sistema para agendamento de consultas online com profissionais" />
 <meta name="viewport"
 	content="width=device-width, height=device-height, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<style type="text/css"> @import url("Estilo.css"); </style>
+<style type="text/css">
+@import url("Estilo.css");
+</style>
 </head>
 <body>
 
@@ -35,12 +36,9 @@ if (area != null) {
 	<header class="containerHeader">
 
 		<nav>
-
 			<input type="checkbox" id="check"> <label for="check"
 				class="checkbtn"> <i class="fas fa-bars"></i>
 			</label>
-
-
 			<ul>
 				<li><a class="active"
 					href="http://localhost:8080/SistemaAgendamento/">Início</a></li>
@@ -48,46 +46,42 @@ if (area != null) {
 				<li><a href="login.jsp">Login</a></li>
 			</ul>
 		</nav>
-		<section></section>
 	</header>
 
 	<section class="cover">
-		<div class="top_cover">
-			</h1>
-		</div>
+		<div class="top_cover"></div>
 		<div class="top_cover">
 			<h1>
-				<a href="login.jsp">Bem Vindo! Entre na sua conta</a><br>
-				<br>
+				<a href="login.jsp">Bem Vindo! Entre na sua conta</a><br> <br>
 			</h1>
 		</div>
 		<div class="top_cover">
 			<h2>
 				Confira nossa lista de profissionais
 				<%
-				if (area != null) {
+			if (area != null) {
 			%>
 				em
 				<%=area%>
 				<%
-					}
+				}
 				%>
 			</h2>
 
 			<div style="overflow-x: auto;">
 				<table>
 					<thead>
-						
+						<tr>
 							<th>CPF</th>
 							<th>Nome</th>
 							<th>Area</th>
 							<th>Especialidade</th>
 							<th>Email</th>
-						
+						</tr>
 					</thead>
 					<tbody>
 						<%
-							for (Profissionais profissional : profissionais) {
+						for (Profissionais profissional : profissionais) {
 						%>
 						<tr>
 							<td><%=profissional.getCpf()%></td>
@@ -97,26 +91,17 @@ if (area != null) {
 							<td><%=profissional.getEmail()%></td>
 						</tr>
 						<%
-							}
+						}
 						%>
 					</tbody>
 				</table>
 			</div>
-			<br> Selecione a area:
 			<form action="" method="POST">
-				<input type="text" id="a" name="a" size="20"> <input
-					type="submit" value="Pesquisar" />
+				<input type="text" id="a" name="a" size="20" value="Insira a Área Procurada"><input class="botao" type="submit" value="Pesquisar" />
 			</form>
 
 		</div>
-
-
-
-
-
-
-
-
+		<div class="top_cover"></div>
 	</section>
 
 	<main id="#">
@@ -134,8 +119,7 @@ if (area != null) {
 			<center>
 				<h1>Consulta médica</h1>
 			</center>
-			</br>
-			</br>
+			</br> </br>
 			<p>Sistema para agendamento de consultas online comprofissionais</p>
 		</div>
 		<div>

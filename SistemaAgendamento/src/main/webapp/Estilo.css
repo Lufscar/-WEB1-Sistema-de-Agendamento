@@ -1,3 +1,45 @@
+
+.botao {
+  box-sizing: border-box;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  background-color: transparent;
+  border: 2px solid #00a4ef;
+  border-radius: 0.6em;
+  color: #e74c3c;
+  cursor: pointer;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-self: center;
+      -ms-flex-item-align: center;
+          align-self: center;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1;
+  margin: 5px;
+  padding: 0.2em 0.8em;
+  text-decoration: none;
+  text-align: center;
+  text-transform: uppercase;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  border-color: #00a4ef;
+  color: #fff;
+  box-shadow: 0 0 40px 40px #00a4ef inset, 0 0 0 0 #00a4ef;
+  -webkit-transition: all 150ms ease-in-out;
+  transition: all 150ms ease-in-out;
+}
+.botao:hover, .botao:focus {
+  color: #00a4ef;
+  outline: 0;
+  box-shadow: 0 0 10px 0 white inset, 0 0 10px 4px #00a4ef;
+}
+/* botao retirado de: https://edrodrigues.com.br/blog/20-incriveis-botoes-animados-de-css-puro/ */
+
+
 .container2x5 {
 	width: 95%;
 	overflow: hidden;
@@ -174,14 +216,30 @@
 }
 
 .cover {
+	justify-content: space-between;
+	width: 100%;
+	height: 100%;
+	position: relative;
+}
+
+.cover:after {
+	content: "";
+	position: absolute;
+	top: 0;
+	right: 0;
+	left: 0;
+	bottom: 0;
+	width: 100%;
 	min-height: 100vh;
+	height: 100%;
+	opacity: 0.5;
+	z-index: -1;
 	background:
 		url(https://agorarn.com.br/files/uploads/2020/09/Atendimento-medico-Capa-930x524.jpg)
-		no-repeat;
+		center center no-repeat;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
 	background-size: cover;
-	height: calc(100vh - 80px);
-	justify-content: space-between;
-	color: black;
 }
 
 .cover .top_cover {
@@ -508,3 +566,11 @@ nav {
 	width: 100%;
 	z-index: 101;
 }
+
+#erro {
+	width: 80%;
+	margin: 0 auto;
+	border: 1px solid red;
+	background-color: beige;
+}
+
