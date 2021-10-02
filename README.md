@@ -146,3 +146,4 @@ Divisão na implementação da funcionalidade: igualmente dividido
 - R8: ( ) Implementado (X) Parcialmente implementado ( ) Não implementado
 Divisão na implementação da funcionalidade: igualmente dividido
 Faltou apenas a aplicação nos .jsp
+- Observação: Todos os requisitos foram igualmente divididos pois a maior parte do trabalho foi feita enquanto estávamos reunidos, outras poucas partes feitas individualmente foram divididas de maneira equilibrada.
