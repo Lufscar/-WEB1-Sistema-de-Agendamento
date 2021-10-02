@@ -3,7 +3,6 @@
  * [Configurações](#Configurações)
  * [Funcionalidades](#Funcionalidades)
  * [Requisitos](#Requisitos)
- * [O que eu posso mudar? Como mudar?](#What-can-i-change)
  
 ### About
  
