@@ -104,7 +104,7 @@ insert into SistemaAgendamento.CONSULTAS(id_C, id_P, ano, mes, dia, hora)
  4- Faça o deploy do projeto usando o comando a seguir
  
  ```
- mvn clean package tomcat7:deploy
+ mvn clean package tomcat7:redeploy
  ```
  
  5- Acesse http://localhost:8080 e, utilizando o manager, acesse "SistemaAgendamento"
