@@ -145,7 +145,7 @@ if (area != null) {
 					<div id="image_beside" class="_4">
 
 						<h2>Consulta</h2>
-						Lista as consultas de cada cliente e cada profissional após o login de Cliente ou Profissional
+						Lista as consultas de cada cliente e cada profissional após o login
 					</div>
 				</li>
 				<li>
@@ -160,7 +160,7 @@ if (area != null) {
 					<div id="image_beside" class="_6">
 
 						<h2>Clientes</h2>
-						Visualização das consultas agendadas e adição de novas consultas com o login de Cliente	
+						Visualização e adição de consultas com o login de Cliente	
 					</div>
 				</li>
 
