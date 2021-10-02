@@ -106,70 +106,61 @@ if (area != null) {
 
 	<main id="#">
 		<p>
-			<a>Nesta área,</a> você pode realizar uma busca por médico a partir
-			do preenchimento dos campos
+			<a>Na tabela acima,</a> você pode realizar uma busca por profissionais de acordo com a área de atuação.
 		</p>
-		</br>
-		<p>Quanto maior o número de dados, mais fácil será encontrar o
-			profissional que procura.</p>
 	</main>
 
 	<section class="container2x5">
 		<div>
 			<center>
-				<h1>Consulta médica</h1>
+				<h1>Sistema para Agendamento de Consultas com Profissionais Independentes</h1>
 			</center>
-			</br> </br>
-			<p>Sistema para agendamento de consultas online comprofissionais</p>
+			<br></br><br></br>
+			<h2>Confira Abaixo Algumas Funcionalidades Deste Sistema :)</h2>
 		</div>
 		<div>
 			<ul>
 				<li>
 					<div id="image_beside" class="_1">
 
-						<h2>Consulta</h2>
-						Sistema para agendamento de consultas online comprofissionais
-						</p>
+						<h2>Conteúdo Aberto</h2>
+						Lista de todos os profissionais cadastrados antes do Login
 					</div>
 				</li>
 				<li>
 					<div id="image_beside" class="_2">
 
-						<h2>Edição</h2>
-						Sistema para agendamento de consultas online comprofissionais
-						</p>
+						<h2>Filtro</h2>
+						Filtro de profissionais de acordo com a Área
 					</div>
 				</li>
 				<li>
 					<div id="image_beside" class="_3">
 
-						<h2>Remoção</h2>
-						Sistema para agendamento de consultas online comprofissionais
-						</p>
+						<h2>Controle de Usuários</h2>
+						CRUD das tuplas de usuários com o login de Administrador
 					</div>
 				</li>
 				<li>
 					<div id="image_beside" class="_4">
 
-						<h2>Agendamento</h2>
-						Sistema para agendamento de consultas online comprofissionais
-						</p>
+						<h2>Consulta</h2>
+						Lista as consultas de cada cliente e cada profissional após o login de Cliente ou Profissional
 					</div>
 				</li>
 				<li>
 					<div id="image_beside" class="_5">
 
 						<h2>Profissionais</h2>
-						Sistema para agendamento de consultas online comprofissionais
-						</p>
+						Visualização das consultas agendadas com o login de Profissional
+
 					</div>
 				</li>
 				<li>
 					<div id="image_beside" class="_6">
 
 						<h2>Clientes</h2>
-						Sistema para agendamento de consultas online comprofissionais
-						</p>
+						Visualização das consultas agendadas e adição de novas consultas com o login de Cliente	
 					</div>
 				</li>
 
