@@ -3,16 +3,12 @@ package br.ufscar.dc.dsw.controller;
 import br.ufscar.dc.dsw.dao.*;
 import br.ufscar.dc.dsw.domain.*;
 import java.io.IOException;
-import java.sql.Date;
-import java.text.SimpleDateFormat;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.RequestDispatcher;
 
 @WebServlet(name = "CriaCliente", urlPatterns = { "/cliente/criar" })
 public class CriaClientesController extends HttpServlet {
@@ -25,7 +21,7 @@ public class CriaClientesController extends HttpServlet {
         try {
         	String tipo = (String) request.getSession().getAttribute("tipo");
         	if (!tipo.equals("admin")) {
-        		RequestDispatcher rd = request.getRequestDispatcher("/login.jsp");
+        		RequestDispatcher rd = request.getRequestDispatcher("/SistemaAgendamento/login.jsp");
         		rd.forward(request, response);
         		return;
         	}

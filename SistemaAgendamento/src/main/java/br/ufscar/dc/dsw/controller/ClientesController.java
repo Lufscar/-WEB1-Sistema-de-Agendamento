@@ -61,7 +61,10 @@ public class ClientesController extends HttpServlet {
             }
         } catch (RuntimeException | IOException | ServletException | ParseException e) {
             throw new ServletException(e);
-        }
+        } catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
     private void lista(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -88,7 +91,7 @@ public class ClientesController extends HttpServlet {
         dispatcher.forward(request, response);
     }
 
-    private void insere(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException, ParseException {
+    private void insere(HttpServletRequest request, HttpServletResponse response) throws Exception {
         request.setCharacterEncoding("UTF-8");
         
         Long id = Long.parseLong(request.getParameter("id"));

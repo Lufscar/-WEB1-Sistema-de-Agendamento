@@ -43,7 +43,7 @@ public class Clientes{
         this.id = id;
     }
 
-	public static String getCpf() {
+	public String getCpf() {
 		return cpf;
 	}
 	public void setCpf(String cpf) {
