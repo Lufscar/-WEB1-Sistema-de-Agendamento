@@ -9,9 +9,9 @@
 Projeto 1 de Web, disciplina ministrada pelo professor Delano.
 
 Implementação por:
-  - Anderson Henrique Giacomini 769720
-  - Jean
-  - Lu
+  - Anderson Henrique Giacomini, 769720
+  - Jean Araujo, 620394
+  - Luciana Oliveira de Souza Gomes, 743569
   
 ### Configurações 
 
@@ -123,19 +123,26 @@ de administrador é exibido uma tabela de clientes e uma de profissionais, e nes
  
  ### Requisitos
  
- - R1: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+ - R1: ( ) Implementado (X) Parcialmente implementado ( ) Não implementado
 Divisão na implementação da funcionalidade: igualmente dividido
-- R2: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Pode ser acessado logando como: "admin","admin","Admin"
+Faltou corrigir alguns bugs
+- R2: ( ) Implementado (X) Parcialmente implementado ( ) Não implementado
 Divisão na implementação da funcionalidade: igualmente dividido
-- R3: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Pode ser acessado logando como: "admin","admin","Admin"
+Faltou corrigir alguns bugs
+- R3: ( ) Implementado (X) Parcialmente implementado ( ) Não implementado
 Divisão na implementação da funcionalidade: igualmente dividido
-- R4: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+Faltou apenas o filtro por especialidade
+- R4: ( ) Implementado (X) Parcialmente implementado ( ) Não implementado
 Divisão na implementação da funcionalidade: igualmente dividido
+Faltou apenas o envio dos emails
 - R5: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 Divisão na implementação da funcionalidade: igualmente dividido
 - R6: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 Divisão na implementação da funcionalidade: igualmente dividido
 - R7: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
 Divisão na implementação da funcionalidade: igualmente dividido
-- R8: (X) Implementado ( ) Parcialmente implementado ( ) Não implementado
+- R8: ( ) Implementado (X) Parcialmente implementado ( ) Não implementado
 Divisão na implementação da funcionalidade: igualmente dividido
+Faltou apenas a aplicação nos .jsp
